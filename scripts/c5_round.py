@@ -41,20 +41,18 @@ def api(key, path, data=None, retries=3):
                 print(f"  API error: {e}", file=sys.stderr)
                 return None
 
-def make_spec(length_min, length_max):
-    return f"""entities:
-  - protein:
-      id: A
-      sequence: {HLA}
-  - protein:
-      id: B
-      sequence: {B2M}
-  - protein:
-      id: C
-      sequence: {G12D}
-  - protein:
-      id: D
-      sequence: {length_min}..{length_max}"""
+def make_spec(length_min, length_max, binding_chain=None, binding_range=None):
+    """Target spec. binding_chain/binding_range add BoltzGen epitope conditioning
+    (binding_types.binding, 1-based residues) to that target chain."""
+    def ent(cid, seq):
+        block = f"  - protein:\n      id: {cid}\n      sequence: {seq}"
+        if binding_chain == cid and binding_range:
+            block += f"\n      binding_types:\n        binding: '{binding_range}'"
+        return block
+    return "entities:\n" + "\n".join([
+        ent("A", HLA), ent("B", B2M), ent("C", G12D),
+        f"  - protein:\n      id: D\n      sequence: {length_min}..{length_max}",
+    ])
 
 def make_fasta(hla, b2m, pep, binder):
     return f">A\n{hla}\n>B\n{b2m}\n>C\n{pep}\n>D\n{binder}"
@@ -67,6 +65,9 @@ def main():
     parser.add_argument("--num-jobs", type=int, default=12)
     parser.add_argument("--num-designs", type=int, default=10)
     parser.add_argument("--outdir", default="results/japanfold_pilot")
+    parser.add_argument("--tag", default="maxlong", help="job-name tag, keeps round families distinguishable")
+    parser.add_argument("--binding-chain", default=None, help="target chain id to condition on (A, B or C)")
+    parser.add_argument("--binding-range", default=None, help="1-based residue range on that chain, e.g. 1..10")
     args = parser.parse_args()
 
     key = get_key()
@@ -77,10 +78,12 @@ def main():
 
     # Phase 1: Submit design jobs
     print(f"=== R{R}: Submitting {args.num_jobs} design jobs ({args.length_min}-{args.length_max}aa) ===")
-    spec = make_spec(args.length_min, args.length_max)
+    spec = make_spec(args.length_min, args.length_max, args.binding_chain, args.binding_range)
+    if args.binding_chain:
+        print(f"  epitope conditioning: chain {args.binding_chain} residues {args.binding_range}")
     jobs = []
     for i in range(args.num_jobs):
-        name = f"c5_r{R}_maxlong_{letters[i]}"
+        name = f"c5_r{R}_{args.tag}_{letters[i]}"
         r = api(key, "/v1/designs", {"name": name, "protocol": "protein-anything", "spec": spec, "params": {"num_designs": args.num_designs}})
         jid = r.get("id", "") if r else ""
         jobs.append({"name": name, "job_id": jid})

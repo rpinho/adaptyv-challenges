@@ -1,0 +1,11 @@
+De novo mini-protein binder design targeting the KRAS G12D pMHC complex (HLA-A*02:01 / beta-2-microglobulin / VVVGADGVGK peptide), optimized for selectivity over the wild-type pMHC (VVVGAGGVGK).
+
+Design method: BoltzGen (JapanFold API, protein-anything protocol) generating 230-250 residue mini-protein binders against the four-chain target complex. Approximately 16,000 design jobs across 61 rounds with iterative parameter exploration.
+
+Scoring: OpenDDE-AbAg (antibody-antigen checkpoint) via JapanFold API. Each design scored against both the G12D and WT pMHC complexes as four-chain FASTA inputs (HLA + B2M + peptide + binder). Selectivity measured as delta = G12D_confidence - WT_confidence. Ranking by composite score: delta*10 + G12D_confidence + iPTM*2.
+
+Validation: Top candidates independently verified with Boltz-2 structure prediction (MSA-enabled) confirming predicted binding geometry. AF2-Multimer control validation confirmed the scoring pipeline can distinguish G12D from WT at the complex level.
+
+Portfolio construction: 20 designs selected by composite score with diversity filtering. Top 3 entries (c5_r40_f_r0, c5_r40_l_r0, c5_r47_i_r2) have the highest combined selectivity and structural confidence. All designs are de novo sequences with no template or starting scaffold.
+
+Known limitation: All designs show WT confidence > 0.5 (range 0.55-0.73), indicating residual cross-reactivity predicted in silico. Selectivity is driven by higher G12D affinity rather than WT rejection. The binders likely contact both the MHC groove (conserved) and the peptide (where the D→G mutation creates a differential), with groove contacts dominating.
