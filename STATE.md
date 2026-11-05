@@ -43,16 +43,12 @@
 ## C5 — Active (deadline Nov 8 23:59 AoE = Nov 9 11:59 UTC)
 
 ### Current Submission
-**v24 on Proteinbase** as Submission 7 (DESIGNATED), Nov 4 ~11:15 AM ET.
+**v25 on Proteinbase** as Submission 8 (DESIGNATED), Nov 5 ~16:42 UTC / ~11:42 AM ET.
+- Confirmation: https://proteinbase.com/collections/anthropic-adaptyv-protein-design-competition-submission-8-l8k87rAaN1
 - #1: c5_r40_f_r0 delta=+0.274, iptm=0.903, combined=5.475
 - #2: c5_r40_l_r0 delta=+0.277, iptm=0.720, combined=5.143
-- #3: c5_r35_k_r6 delta=+0.274, iptm=0.853, combined=5.359
-
-### v25 — SUBMIT AT 16:07 UTC Nov 5
-File: `results/c5_submission_v25_20261105.csv` (also LATEST.csv)
-24h cooldown from v24 submission. Do NOT resubmit v24.
-v25 adds c5_r47_i_r2 (delta=+0.272, iptm=0.748, combined=5.167) at portfolio #3.
-Steps: navigate to challenge page → Submit designs → upload CSV → Check designs (8 min novelty) → fill methodology → check T&C → Submit.
+- #3: c5_r47_i_r2 delta=+0.272, iptm=0.748, combined=5.167 (NEW in v25)
+- 24h cooldown: next submission window ~16:42 UTC Nov 6
 
 ### R62 — Epitope conditioning: CLOSED
 0/120 selective. WT mean=0.726 (worse than unconditioned baseline). binding_types on C:4..8
