@@ -1,0 +1,55 @@
+READY — local CSV integrity and submission-schema validation. Verified 2026-10-25 08:40 ET.
+
+Scope: format, schema and hash integrity only. This is NOT a scientific endorsement, a novelty
+clearance, an eligibility ruling, or a submission. Nothing was uploaded; nobody was contacted.
+
+Exact upload filename: c3_submission_v8_20261025.csv
+Path: results/c3_submission_v8_20261025.csv
+SHA-256: 631ed0bf6b10e0f8fbf64bd5d9730e294da15f0436af20f52a42bafc92229e12
+Rows: 20 | columns: name,sequence,molecule_class | 20 unique names, 20 unique sequences
+All rows: single_chain | lengths 52-100 aa | canonical amino acids only | no empty cells,
+duplicate headers, surrounding whitespace or malformed rows.
+
+Validator: scripts/c5_validate_submission.py
+Result: PASS — "PASS — 20 rows, 20 required slots, 3 required columns"; exit 0.
+No reviewer sign-off was passed (--reviewer); that is deliberate, since only Ricardo can sign off.
+
+Official schema provenance (2026-10-25):
+- Live official template https://proteinbase.com/templates/competition-submission-template.csv
+  sha256 79f6b3caf48df71ad2a33ecf26444d07ad8e8255d8871ccf902d6c4ed17c6948, byte-identical
+  to results/submission_format_dry_run/official_competition_submission_template.csv.
+  Its header is name,sequence,molecule_class and its example row uses molecule_class=single_chain.
+- Signed-in submit-page record results/submission_format_dry_run/SIGNED_IN_PORTAL_RULES.json:
+  observed_classes = single_chain,nanobody,scfv,fab_kappa,fab_lambda; 10-250 aa per chain;
+  up to 20 proteins per submission.
+- The public FAQ's "protein" value contradicts the form/template. The validator now defaults to
+  the observed portal enum; "protein" is available only via an explicit --classes override.
+  Decision record: results/decisions/20261025-molecule-class-enum.md.
+
+All fallback and preview CSVs revalidated in the same pass (same validator, default official
+classes, default 20 slots). Every one PASSED at its recorded hash:
+
+  c3_submission_v6_20261023.csv                          8e9b2d74...  PASS
+  c3_submission_v7_20261025.csv                          1d99f843...  PASS
+  c3_submission_v8_20261025.csv                          631ed0bf...  PASS
+  c3_challenger_20261025/c3_challenger_filtered_20261025.csv  1450bcc7...  PASS
+  c4_apical_preview_20261024.csv                         f31774b1...  PASS
+  c4_rebuild_20261024/submission_v9_preview.csv          00ec3d59...  PASS
+  submission_v9.csv                                      31d98a41...  PASS
+
+Tests (CPU only, CUDA disabled):
+  tests/c5/test_c5_validator.py  28/28 passed
+  tests/c5/test_c5_templates.py  45/45 passed
+
+Scientific blockers and caveats (unchanged, and NOT cleared by format validation):
+- 8 of 20 v8 rows remain flagged (7 clash + 2 sub-iPTM, 1 overlap). Evidence:
+  results/c3_v8_eligibility_20261025/eligibility.md (PROPOSED dispositions only).
+  This is a revalidation gap: the v8 gate certified only the added row and copied the other 19.
+- Binding, agonism and experimental success are unverified for every row. All metrics are
+  computational predictions.
+- Platform-side acceptance, eligibility and novelty clearance have not been exercised; no upload
+  or server-side validation was performed.
+- Filename choice for upload is Ricardo's decision. The filename above is the current fallback,
+  not an instruction to upload.
+
+Nothing was submitted; nobody was contacted. No GPU was used.

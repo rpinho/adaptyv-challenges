@@ -1,8 +1,0 @@
-DROPPED frozen edges by arm pair: {('depth_arm', 'r2_111'): 49, ('depth_arm', 'v8_r1'): 42, ('depth_arm', 'depth_arm'): 40}
-total dropped: 131
-FROZEN edges by arm pair: {('depth_arm', 'v8_r1'): 73, ('depth_arm', 'depth_arm'): 110, ('depth_arm', 'r2_111'): 101}
-
-arm pair                       frozen  dropped  drop rate
-('depth_arm', 'depth_arm')        110       40      36.4%
-('depth_arm', 'r2_111')           101       49      48.5%
-('depth_arm', 'v8_r1')             73       42      57.5%

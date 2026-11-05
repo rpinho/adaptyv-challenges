@@ -1,0 +1,42 @@
+[
+  {
+    "app_id": "ap-RFWxgzRRBoacrf2PlEP9gZ",
+    "description": "rfd4-tfr1",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-10-23 07:35:49-04:00",
+    "stopped_at": "2026-10-23 07:36:38-04:00"
+  },
+  {
+    "app_id": "ap-pT0Am692iI9U1gIsQVptuQ",
+    "description": "rfd4-tfr1",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-10-23 07:34:44-04:00",
+    "stopped_at": "2026-10-23 07:35:26-04:00"
+  },
+  {
+    "app_id": "ap-MLsDay51dMvQnlyUqCMuwc",
+    "description": "rfd4-tfr1",
+    "state": "stopped",
+    "tasks": "0",
+    "created_at": "2026-10-23 07:10:16-04:00",
+    "stopped_at": "2026-10-23 07:58:23-04:00"
+  },
+  {
+    "app_id": "ap-XtLPz6eryoS2C7b8OSfqRR",
+    "description": "adaptyv-c4-native-control",
+    "state": "deployed",
+    "tasks": "0",
+    "created_at": "2026-10-22 11:30:52-04:00",
+    "stopped_at": null
+  },
+  {
+    "app_id": "ap-dzwX0RVpun7AagVi94b8TZ",
+    "description": "claude-science-alder-dusk-ember",
+    "state": "deployed",
+    "tasks": "0",
+    "created_at": "2026-10-18 14:43:52-04:00",
+    "stopped_at": null
+  }
+]

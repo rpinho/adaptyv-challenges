@@ -1,0 +1,156 @@
+#!/bin/bash
+# Supervisor for c3_seed_replication_v1_20261025 (Astra 03:52 / 04:08 tiebreak).
+#  * waits for the sampling-depth arm to release the pods WITHOUT preemption
+#  * launches the frozen 160-invocation seed arm via the hash-checking launcher
+#  * pulls artifacts every 2 min
+#  * enforces: admissions stop 07:00, computation terminated 07:30, retrieval by 07:50,
+#    pods stopped 07:55. The $340 total-spend stop overrides all times.
+# usage: c3_seedrep_autopilot_20261025.sh [--once]
+set -uo pipefail
+cd "$(dirname "$0")/.." || exit 1
+KEY=$HOME/.ssh/runpod_ed25519
+SR=results/c3_seed_replication_v1_20261025
+SD=results/c3_sampling_depth_v1_20261025
+LOG=$SR/autopilot.log
+LOCK=$SR/autopilot.instance.lock
+mkdir -p "$SR" "$SR/logs"
+ADMIT=1792926000      # 07:00 ET admissions stop
+KILLAT=1792927800     # 07:30 ET terminate computation
+RETRIEVE=1792929000   # 07:50 ET checksum-verified retrieval
+PODSTOP=1792929300    # 07:55 ET stop pods
+# Screen arm's own hard stop. After this the screen may not compute at all, so an unfinished
+# screen slice is final and the pod may be handed to replication instead of being left idle.
+SCREEN_HARD=$(python3 -c "import json;print(json.load(open('$SD/af2m_manifest.json'))['hard_stop_epoch'])" 2>/dev/null || echo 1792924260)
+
+log() { echo "$(date '+%F %T %Z') $*" | tee -a "$LOG"; }
+spec_of() { case $1 in p1) echo 63.141.33.138:22113;; p2) echo 194.68.245.32:22065;;
+  p3) echo 69.30.85.102:22129;; p4) echo 194.68.245.69:22022;;
+  p5) echo 194.68.245.147:22117;; *) return 1;; esac; }
+# Frozen per-pod screen slice size, used to prove a screen slice finished before the seed arm
+# may claim that pod. "no driver and no folds" alone is indistinguishable from a mid-slice crash.
+sd_expected() { python3 -c "import json;d=json.load(open('$SD/af2m_manifest.json'));print(d['per_pod']['$1'])" 2>/dev/null; }
+
+acquire() {
+  local owner
+  if [ -e "$LOCK" ]; then
+    owner=$(cat "$LOCK" 2>/dev/null || true)
+    if [ -n "$owner" ] && kill -0 "$owner" 2>/dev/null; then log "SEEDREP_AUTOPILOT_ALREADY_RUNNING pid=$owner"; exit 0; fi
+    python3 -c "import pathlib;p=pathlib.Path('$LOCK');p.unlink() if p.exists() else None"
+  fi
+  if ! (set -o noclobber; echo "$$" >"$LOCK") 2>/dev/null; then log "SEEDREP_AUTOPILOT_LOCK_RACE"; exit 0; fi
+}
+
+# prints drivers/folds/scored/alldone for the seed arm's own paths
+probe() {
+  local spec host port
+  spec=$(spec_of "$1") || return 1; host=${spec%%:*}; port=${spec#*:}
+  ssh -n -i "$KEY" -o StrictHostKeyChecking=no -o ConnectTimeout=12 -o BatchMode=yes -p "$port" root@$host \
+    "d=\$(ps -eo args= | awk '\$1==\"bash\" && \$2==\"/workspace/seedrep/seedrep_pod_run.sh\" {n++} END{print n+0}'); sd=\$(ps -eo args= | awk '(\$1==\"bash\" && \$2==\"/workspace/sd1/sd_pod_run_par.sh\") || (\$1 ~ /python/ && \$2==\"/workspace/pod_run_par.py\") {n++} END{print n+0}'); f=\$(ps -eo args= | awk '{for(i=1;i<=NF;i++) if (\$i ~ /\\/colabfold_batch\$/) {n++; break}} END{print n+0}'); s=\$(find /workspace/seedrep/out -name scores.json 2>/dev/null | wc -l | tr -d ' '); e=\$(find /workspace/seedrep/out -name error.json 2>/dev/null | wc -l | tr -d ' '); a=\$(grep -l '^ALL_DONE\$' /workspace/seedrep/logs/par_*.log 2>/dev/null | wc -l | tr -d ' '); sds=\$(find /workspace/sd1/out -name scores.json 2>/dev/null | wc -l | tr -d ' '); sda=\$(grep -l '^ALL_DONE\$' /workspace/sd1/logs/par_*.log 2>/dev/null | wc -l | tr -d ' '); echo \"drivers=\$d sddrv=\$sd folds=\$f scored=\$s errors=\$e alldone=\$a sds=\$sds sda=\$sda\"" 2>/dev/null
+}
+
+pull() { bash scripts/c3_seedrep_pull_20261025.sh; }
+
+once() {
+  local now p st d f s e a drivers=0 folds=0 all_done=0
+  now=$(date +%s)
+  for p in p1 p2 p3 p4 p5; do
+    st=$(probe "$p") || { log "$p ssh_probe_failed"; continue; }
+    [ -z "$st" ] && { log "$p ssh_probe_empty"; continue; }
+    d=$(sed -n 's/.*drivers=\([0-9]*\).*/\1/p' <<<"$st")
+    f=$(sed -n 's/.*folds=\([0-9]*\).*/\1/p' <<<"$st")
+    s=$(sed -n 's/.*scored=\([0-9]*\).*/\1/p' <<<"$st")
+    e=$(sed -n 's/.*errors=\([0-9]*\).*/\1/p' <<<"$st")
+    a=$(sed -n 's/.*alldone=\([0-9]*\).*/\1/p' <<<"$st")
+    drivers=$((drivers+${d:-0})); folds=$((folds+${f:-0})); all_done=$((all_done+${a:-0}))
+    log "$p drivers=${d:-0} folds=${f:-0} scored=${s:-0} errors=${e:-0} alldone=${a:-0}"
+  done
+  log "SEEDREP_TOTAL drivers=$drivers folds=$folds alldone=$all_done/5 now=$now"
+
+  # 1. Terminate computation at the hard boundary.
+  if [ "$now" -ge "$KILLAT" ]; then
+    if [ "$drivers" -gt 0 ] || [ "$folds" -gt 0 ]; then
+      log "SEEDREP_HARD_STOP drivers=$drivers folds=$folds; terminating seed arm only"
+      for p in p1 p2 p3 p4 p5; do
+        spec=$(spec_of "$p"); host=${spec%%:*}; port=${spec#*:}
+        # Kill the python runner as well as the bash wrapper. A nohup/setsid python child survives
+        # a wrapper-only kill and would keep burning GPU past the ruling's stop time.
+        ssh -n -i "$KEY" -o StrictHostKeyChecking=no -o ConnectTimeout=12 -o BatchMode=yes -p "$port" root@$host \
+          "pg=\$(ps -eo pid=,args= | awk '(\$2==\"bash\" && \$3==\"/workspace/seedrep/seedrep_pod_run.sh\") || (\$2 ~ /python/ && \$3==\"/workspace/pod_run_seed.py\") {print \$1}'); if [ -n \"\$pg\" ]; then for x in \$pg; do kill -TERM -\$x 2>/dev/null || kill -TERM \$x 2>/dev/null; done; sleep 2; for x in \$pg; do kill -KILL -\$x 2>/dev/null || kill -KILL \$x 2>/dev/null; done; echo SEEDREP_TERM_$p pids=\$pg; else echo SEEDREP_NO_DRIVER_$p; fi" 2>/dev/null
+      done
+      sleep 5
+    fi
+    pull; log "pull_rc=$?"
+    python3 scripts/c3_seedrep_verify_20261025.py >>"$LOG" 2>&1; log "verify_rc=$?"
+    return 0
+  fi
+
+  # 2. Launch per pod, as soon as THAT pod's screen slice releases it. Waiting for the whole
+  #    screen to finalize would idle every early-finishing pod until 06:13 (the SD autopilot's
+  #    own finalize point), which is the waste this arm exists to avoid. Never preempts a live
+  #    SD driver or fold on that pod. The launcher re-checks hashes and its own 07:00 cutoff.
+  if [ "$now" -lt "$ADMIT" ]; then
+    for p in p1 p2 p3 p4 p5; do
+      st=$(probe "$p") || continue
+      [ -z "$st" ] && continue
+      d=$(sed -n 's/.*drivers=\([0-9]*\).*/\1/p' <<<"$st")
+      sd=$(sed -n 's/.*sddrv=\([0-9]*\).*/\1/p' <<<"$st")
+      f=$(sed -n 's/.*folds=\([0-9]*\).*/\1/p' <<<"$st")
+      s=$(sed -n 's/.*scored=\([0-9]*\).*/\1/p' <<<"$st")
+      a=$(sed -n 's/.*alldone=\([0-9]*\).*/\1/p' <<<"$st")
+      if [ "${d:-0}" -eq 1 ]; then continue; fi
+      if [ "${d:-0}" -gt 1 ]; then log "$p seed drivers=${d:-0} not relaunching"; continue; fi
+      if [ "${sd:-0}" -gt 0 ]; then log "$p screen_still_owns_pod sddrv=${sd:-0}; not launching seed"; continue; fi
+      if [ "${f:-0}" -gt 0 ]; then log "$p in_flight_folds=${f:-0}; waiting"; continue; fi
+      if [ "${a:-0}" -ge 1 ]; then log "$p seed_slice_complete scored=${s:-0}; not relaunching"; continue; fi
+      # POSITIVE completion proof required before the seed arm may take this GPU. A screen driver
+      # that died mid-slice also leaves drivers=0/folds=0; without this check the seed arm would
+      # permanently preempt the remaining screen designs. The SD autopilot relaunches a genuinely
+      # dead screen driver, so declining here is the correct, non-destructive action.
+      sds=$(sed -n 's/.*sds=\([0-9]*\).*/\1/p' <<<"$st"); sda=$(sed -n 's/.*sda=\([0-9]*\).*/\1/p' <<<"$st")
+      sde=$(sd_expected "$p")
+      if [ "${sda:-0}" -ge 1 ] || { [ -n "${sde:-}" ] && [ "${sds:-0}" -ge "${sde}" ]; }; then
+        log "$p screen_slice_complete sds=${sds:-0}/$sde sda=${sda:-0}; releasing to seed"
+      elif [ -n "${SCREEN_HARD:-}" ] && [ "$now" -ge "${SCREEN_HARD}" ]; then
+        log "$p screen_slice_UNFINISHED but screen hard stop passed; releasing to seed sds=${sds:-0}/$sde"
+      else
+        log "$p screen_slice_INCOMPLETE sds=${sds:-0}/$sde sda=${sda:-0} drivers=0 folds=0; NOT launching seed (SD autopilot owns relaunch)"
+        continue
+      fi
+      log "$p seed_release_detected; launching frozen slice"
+      bash scripts/c3_seedrep_launch_20261025.sh "$p" >>"$LOG" 2>&1
+      log "$p launch_rc=$?"
+    done
+  else
+    log "SEEDREP_ADMISSIONS_CLOSED now=$now; no new launches"
+  fi
+  pull; log "pull_rc=$?"
+  python3 scripts/c3_seedrep_verify_20261025.py >>"$LOG" 2>&1; log "verify_rc=$?"
+}
+
+PASSIVE=0; [ "${1:-}" = "--once" ] && PASSIVE=1
+[ "$PASSIVE" = 0 ] && acquire
+release_lock() { [ "$PASSIVE" = 0 ] && [ "$(cat "$LOCK" 2>/dev/null)" = "$$" ] && rm -f "$LOCK"; }
+trap release_lock EXIT
+if [ "$PASSIVE" = 1 ]; then once; exit $?; fi
+log "SEEDREP_AUTOPILOT_START pid=$$ admit=$ADMIT kill=$KILLAT retrieve=$RETRIEVE podstop=$PODSTOP"
+while true; do
+  once; rc=$?
+  now=$(date +%s)
+  if [ "$now" -ge "$RETRIEVE" ]; then
+    log "SEEDREP_RETRIEVAL_WINDOW reached; final pull"
+    pull; log "final_pull_rc=$?"
+    python3 scripts/c3_seedrep_verify_20261025.py >>"$LOG" 2>&1; vrc=$?; log "final_verify_rc=$vrc"
+    # Use the dedicated finalizer: closed status vocabulary per invocation + summary + hashed
+    # evidence. The old inline block both used `local` outside a function (fatal in bash) and
+    # hashed the whole tree including logs/ and the .finalized marker it had just written.
+    if [ "$vrc" = 0 ] && [ ! -e "$SR/.finalized" ]; then
+      python3 scripts/c3_seedrep_finalize_20261025.py >>"$LOG" 2>&1; frc=$?; log "finalize_rc=$frc"
+    fi
+    if [ "$now" -ge "$PODSTOP" ]; then
+      log "SEEDREP_PODSTOP_TIME reached (pods self-stop by their own timers)"
+      break
+    fi
+  fi
+  sleep 120
+done
+log "SEEDREP_AUTOPILOT_STOP"

@@ -1,0 +1,162 @@
+[
+  {
+    "name": "tfr1_c4_acid_site2_1",
+    "sequence": "LDHILTEVETAISKGFAMVKEETLYFLEKNTNYTEEEKQHMWESFTKKMDEAEEKTISEWHERLTEHFES",
+    "molecule_class": "single_chain",
+    "iptm": 0.7057363986968994,
+    "confidence": 0.8318573236465454,
+    "avg_complex_his_pka": 6.62
+  },
+  {
+    "name": "tfr1_c4_acid_site2_197",
+    "sequence": "SQKDVREVQSFLRTHREEIIDDIMSLVAQGKSELEIAEMLMKKFKSHNPLLYTVFIDLAHAAHQGETALKMALDNIISYP",
+    "molecule_class": "single_chain",
+    "iptm": 0.7073910236358643,
+    "confidence": 0.8239334225654602,
+    "avg_complex_his_pka": 6.57
+  },
+  {
+    "name": "tfr1_c4_acid_site2_73",
+    "sequence": "SEEAEELNEAFDEYKNLASEYKDAVSAGDWDKAEELRDKGFELNLKIRHLASHFDLTDEDKEFRVH",
+    "molecule_class": "single_chain",
+    "iptm": 0.7554391026496887,
+    "confidence": 0.8171292543411255,
+    "avg_complex_his_pka": 6.51
+  },
+  {
+    "name": "tfr1_c4_acid_site1_156",
+    "sequence": "DLQERVETDIRISVRLKGEELNWSEEFQESLAEDMIHFVFSIMRAHQALEETDSLDDAEPELQDLVETGEPVLESLQPIREEAAEEEHHLHE",
+    "molecule_class": "single_chain",
+    "iptm": 0.6512287259101868,
+    "confidence": 0.725718080997467,
+    "avg_complex_his_pka": 6.51
+  },
+  {
+    "name": "tfr1_c4_acid_site1_143",
+    "sequence": "PSHGTLPAFAKPKTVEEQAAEVLERLSTTLHLTDSEHASLEATLHHLVSSFKAALSSDSSAMYDFQTDLTHFFHDITLLFHEKF",
+    "molecule_class": "single_chain",
+    "iptm": 0.734229326248169,
+    "confidence": 0.8080458045005798,
+    "avg_complex_his_pka": 6.45
+  },
+  {
+    "name": "tfr1_c4_acid_site2_171",
+    "sequence": "SSSVATSEQIAEVNHRWEMMKTDAMTLLMSTDQDEHGLDVVMEFVAEKFKAMYHEFPQAMDFLELD",
+    "molecule_class": "single_chain",
+    "iptm": 0.7630030512809753,
+    "confidence": 0.8325497508049011,
+    "avg_complex_his_pka": 6.42
+  },
+  {
+    "name": "tfr1_c4_acid_site2_169",
+    "sequence": "EELEEHLEHLEEVHEQLEHDHEHLAHYEEKMTTAHELLTRVTEAGNAGDTEAVEEAWADYFTFLMEPVLEA",
+    "molecule_class": "single_chain",
+    "iptm": 0.7521746754646301,
+    "confidence": 0.8294004797935486,
+    "avg_complex_his_pka": 6.42
+  },
+  {
+    "name": "tfr1_c4_acid_site2_4",
+    "sequence": "SHLDEVVAEVKDTFGHYFDDELKILTEAVASGQVTEDEVVSYLEKILDSHHDFVDHLEDNVAEL",
+    "molecule_class": "single_chain",
+    "iptm": 0.7055105566978455,
+    "confidence": 0.7954483032226562,
+    "avg_complex_his_pka": 6.38
+  },
+  {
+    "name": "tfr1_c4_acid_site1_1",
+    "sequence": "ETEEILTELASVEEQLAAIRDPANRRALAAIPQGDAHLHPGLFTPEELEEFTALYARRNELVDQLLHLRA",
+    "molecule_class": "single_chain",
+    "iptm": 0.6700462698936462,
+    "confidence": 0.8054639101028442,
+    "avg_complex_his_pka": 6.37
+  },
+  {
+    "name": "tfr1_c4_acid_site1_144",
+    "sequence": "THTHMDELHTEQELMTPEQKRMAELDFDHDLLHKTIAEMGLDDYVHMLEDTKERTIQAMEDHHELDHHIDDQRAFMDDYINDVRNL",
+    "molecule_class": "single_chain",
+    "iptm": 0.604361891746521,
+    "confidence": 0.7656853795051575,
+    "avg_complex_his_pka": 6.36
+  },
+  {
+    "name": "tfr1_c4_acid_site2_74",
+    "sequence": "HPLYQQALEDAEDYFSALASRVSAALGSTSVEDVDGDMLMELASTLELHVDDVSLALSKLLHESR",
+    "molecule_class": "single_chain",
+    "iptm": 0.7419574856758118,
+    "confidence": 0.8388221859931946,
+    "avg_complex_his_pka": 6.35
+  },
+  {
+    "name": "tfr1_c4_acid_site2_62",
+    "sequence": "SSFMREASYHSDPVVQEFYHLLDSFSHSLLTAVQERESHVSVADVIEMEYSTFAPVMDTFKSDHKDTLEKYATEATEHEHH",
+    "molecule_class": "single_chain",
+    "iptm": 0.6359406113624573,
+    "confidence": 0.7966325283050537,
+    "avg_complex_his_pka": 6.35
+  },
+  {
+    "name": "tfr1_c4_acid_site1_174",
+    "sequence": "DEEAYEEKKDELSEFLDENSHLSSSEQAEELFRMLSDHSEEEVDALLHHTRQFQSFWEEMKAEHPEFVAAARKRFEEELASH",
+    "molecule_class": "single_chain",
+    "iptm": 0.6526759266853333,
+    "confidence": 0.7376759052276611,
+    "avg_complex_his_pka": 6.34
+  },
+  {
+    "name": "tfr1_c4_acid_site1_56",
+    "sequence": "SELERLQHTLHDMKEQKEELIQQEIRTLKSWNHDSTATEDQIEELAVDIYEANIHHLEDKIHELETEEEEETEEEE",
+    "molecule_class": "single_chain",
+    "iptm": 0.6086466312408447,
+    "confidence": 0.7851201295852661,
+    "avg_complex_his_pka": 6.33
+  },
+  {
+    "name": "tfr1_c4_acid_site1_137",
+    "sequence": "ATEELEHRTHLLEQLDTVRKEFPDYAEEEYTPTDQEKVEMLEAEIRMVEKQLAEETDPERKLQLTHELESLKNRLAEL",
+    "molecule_class": "single_chain",
+    "iptm": 0.7841705679893494,
+    "confidence": 0.8046566843986511,
+    "avg_complex_his_pka": 6.32
+  },
+  {
+    "name": "tfr1_c4_acid_site2_92",
+    "sequence": "ETEEEEAEERDEYDEKESHTSKVLDKADELVSEEKFDEAISLLEDEISKHPHNLTFRTKLIVVLSEAGKLDEAVSHLEHLMTDLDDMLHHYEDEVETLT",
+    "molecule_class": "single_chain",
+    "iptm": 0.7595772743225098,
+    "confidence": 0.8182616233825684,
+    "avg_complex_his_pka": 6.31
+  },
+  {
+    "name": "tfr1_c4_acid_site2_155",
+    "sequence": "SFETLLSETSAAVSAEDKDKLEEVVEDAKTLSDEELETFIDFLSEKGKEVSSKEFQHFVEEKLVELRALLLHRKFHH",
+    "molecule_class": "single_chain",
+    "iptm": 0.753534734249115,
+    "confidence": 0.832760751247406,
+    "avg_complex_his_pka": 6.3
+  },
+  {
+    "name": "tfr1_c4_acid_site2_137",
+    "sequence": "SLTPFDFSEEVTKAASIILEHFNLSHFDASFLHALATATVYYDFLDDDEKDIYDSVMEALAKDPHGVVAAAEELSEAH",
+    "molecule_class": "single_chain",
+    "iptm": 0.6448991298675537,
+    "confidence": 0.7432653903961182,
+    "avg_complex_his_pka": 6.27
+  },
+  {
+    "name": "tfr1_c4_acid_site1_177",
+    "sequence": "HHEEIETLKTEILTFIHTLHEKYEEHGLEGITEEDVEEFEKRLNELYETAVGMSYQEFAELSDDERLEVLEEMGVPEHVLEEIKEQLEEQH",
+    "molecule_class": "single_chain",
+    "iptm": 0.7694108486175537,
+    "confidence": 0.8318287134170532,
+    "avg_complex_his_pka": 6.26
+  },
+  {
+    "name": "tfr1_c4_acid_site2_52",
+    "sequence": "SASDFFDHQVTPEQRAAMDKASKETAERAEEIFHLVVNEGHHLSDVYRTRFENHHPDDSELVDLMMTYFENTMEKHD",
+    "molecule_class": "single_chain",
+    "iptm": 0.6834466457366943,
+    "confidence": 0.7732456922531128,
+    "avg_complex_his_pka": 6.26
+  }
+]

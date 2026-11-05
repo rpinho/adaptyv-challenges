@@ -1,0 +1,123 @@
+{
+  "checked_at_utc": "2026-10-29T00:56:24Z",
+  "checked_files": 129,
+  "status": "FAIL",
+  "failures": [
+    {
+      "path": "results/c4_apical_pdb_audit_20261025/all343/tfr1_c4_acid_site1_123_complex.pdb",
+      "expected": "e1a5e11f978094b7a4c195e657167e9e41a2c7ed62432ce2bc73606cbc0068fb",
+      "actual": null
+    },
+    {
+      "path": "results/c4_apical_pdb_audit_20261025/all343/tfr1_c4_acid_site1_144_complex.pdb",
+      "expected": "e43a5c43fb576077f5ba956e1519a91014c6e8cc9ecc03b42ac18c4f412981b2",
+      "actual": null
+    },
+    {
+      "path": "results/c4_apical_pdb_audit_20261025/all343/tfr1_c4_acid_site1_145_complex.pdb",
+      "expected": "a447d431d4bc1b3df028fd0ab4e9955c40adca92376e968a00e09addd51d0cf4",
+      "actual": null
+    },
+    {
+      "path": "results/c4_apical_pdb_audit_20261025/all343/tfr1_c4_acid_site1_14_complex.pdb",
+      "expected": "880b86731d6bb647ade3921cc98422e1eb2c8cac5c21940570d5993ef2a3998b",
+      "actual": null
+    },
+    {
+      "path": "results/c4_apical_pdb_audit_20261025/all343/tfr1_c4_acid_site1_174_complex.pdb",
+      "expected": "b3edee840e9480694bf56e10c1a7e4bd758730384b53a83247308e2b9a5829c9",
+      "actual": null
+    },
+    {
+      "path": "results/c4_apical_pdb_audit_20261025/all343/tfr1_c4_acid_site1_185_complex.pdb",
+      "expected": "1d29b8def1a4f608c3472cada8b38978b51a8f68ce3e387cbad5220c282305da",
+      "actual": null
+    },
+    {
+      "path": "results/c4_apical_pdb_audit_20261025/all343/tfr1_c4_acid_site1_194_complex.pdb",
+      "expected": "bc0c8998129609264a451b68b59032026b6324b9332ef93813716755a19ea51c",
+      "actual": null
+    },
+    {
+      "path": "results/c4_apical_pdb_audit_20261025/all343/tfr1_c4_acid_site1_24_complex.pdb",
+      "expected": "e0aa7826114be0b22a0f057cc4351c69e284cf120993f5573c805c41bb64d382",
+      "actual": null
+    },
+    {
+      "path": "results/c4_apical_pdb_audit_20261025/all343/tfr1_c4_acid_site1_40_complex.pdb",
+      "expected": "bc1e913c5f7b14c011dd45c6619ea44c25dfa67a9c5b8645cce5a3035a136800",
+      "actual": null
+    },
+    {
+      "path": "results/c4_apical_pdb_audit_20261025/all343/tfr1_c4_acid_site1_56_complex.pdb",
+      "expected": "58b0a820b1c0b3334a1b1a013596ef0b4bebc10ef9dbd667904e9f80344d76bf",
+      "actual": null
+    },
+    {
+      "path": "results/c4_apical_pdb_audit_20261025/all343/tfr1_c4_acid_site1_73_complex.pdb",
+      "expected": "997f3e54af130ebd978817d8954a0d6db9171e71340620665a6dd8e44a0b9be6",
+      "actual": null
+    },
+    {
+      "path": "results/c4_apical_pdb_audit_20261025/all343/tfr1_c4_acid_site1_79_complex.pdb",
+      "expected": "b815aa48d1a06715b0476069889c4bdc3b348217aceae88bc0abeed54eb84a0e",
+      "actual": null
+    },
+    {
+      "path": "results/c4_apical_pdb_audit_20261025/all343/tfr1_c4_acid_site2_108_complex.pdb",
+      "expected": "2e26034b275cd2c70154914ed373fd6600d1cbcd8970d70c042ed4cd61f8f180",
+      "actual": null
+    },
+    {
+      "path": "results/c4_apical_pdb_audit_20261025/all343/tfr1_c4_acid_site2_120_complex.pdb",
+      "expected": "31f6818177af08d8acbf7ef21c1d5ed2bd78ea9defadbfbcaaa0178a0c4f2c44",
+      "actual": null
+    },
+    {
+      "path": "results/c4_apical_pdb_audit_20261025/all343/tfr1_c4_acid_site2_12_complex.pdb",
+      "expected": "9515551ef25e5243a2cf1a088242c6aaffc5cf9430c473c4295fd76a012fd377",
+      "actual": null
+    },
+    {
+      "path": "results/c4_apical_pdb_audit_20261025/all343/tfr1_c4_acid_site2_152_complex.pdb",
+      "expected": "2376518ff1201d5356f428aac7af60c4349c7a56f975b0e4495962c22f4d8a55",
+      "actual": null
+    },
+    {
+      "path": "results/c4_apical_pdb_audit_20261025/all343/tfr1_c4_acid_site2_172_complex.pdb",
+      "expected": "4e361c47cc30e5ad2ba8bf52f08239d0b22e1bf7060d1b7eaee606d0c17368c5",
+      "actual": null
+    },
+    {
+      "path": "results/c4_apical_pdb_audit_20261025/all343/tfr1_c4_acid_site2_174_complex.pdb",
+      "expected": "75570f692eb5418cd8f7ce7377b349120d2a740427406a2711b6a5bdeb9583b2",
+      "actual": null
+    },
+    {
+      "path": "results/c4_apical_pdb_audit_20261025/all343/tfr1_c4_acid_site2_176_complex.pdb",
+      "expected": "789c311a31f9e381c70d823dd0c36bdbb17652e6ada7da9d5ffc4f2ca4233af8",
+      "actual": null
+    },
+    {
+      "path": "results/c4_apical_pdb_audit_20261025/all343/tfr1_c4_acid_site2_1_complex.pdb",
+      "expected": "5dbd44d516a9060140d29095c7acac9d5915dd89ce40eab54605b99b4a39b884",
+      "actual": null
+    },
+    {
+      "path": "results/c4_epitope_strategy_20261026/epitope_strategy.json",
+      "expected": "af1f65899c412abf6676430f2a6b49f40b5772597af0dd3a712d8ce3220d51da",
+      "actual": null
+    },
+    {
+      "path": "results/c4_independent_check_20261026/independent_metrics.json",
+      "expected": "5d4452a9c234fc097b560226d101c8f54fa924e25cedd1c44c01b3e0822215cf",
+      "actual": null
+    },
+    {
+      "path": "results/c4_native_context_20261026/native_context_gap.json",
+      "expected": "d8bbb7ad10d4f0d735eadde246f1cfcbc30fe89003d874b24183a0fa9671ba6f",
+      "actual": null
+    }
+  ],
+  "scope": "C4 local artifact integrity only; no scientific revalidation or C5 polling"
+}

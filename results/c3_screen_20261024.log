@@ -1,0 +1,26 @@
+Everything up to the GPU step is done and validated; now it's genuinely a waiting game on the smoke fold.
+
+**Status so far — authorized C3 AF2-multimer screen:**
+
+**Done (no GPU, all reversible/additive — v6 untouched, 21 lines intact):**
+- **Target identity validated:** chain A of the ranked BindCraft CIF (`l57`) = exactly the 111-res ECD from audit §6; chain B = the v6 l57 binder. This is the same target BindCraft's iPTM was computed on.
+- **Candidate set built:** 24-design RFD4 shortlist (`results/c3_screen_shortlist_20261024.csv`, novelty 0.96–0.98, soluble/non-TM, diversity-spread) + all 20 v6 → `results/c3_screen_input_20261024.csv` (44 complexes, all paired with the 111-res target). I flagged and corrected a real inconsistency: the RFD4 pool was generated against a 117-res (`KRGER`-insert) target, so I force the 111-res target for all 44 — a fair, uniform comparison.
+- **Infra written:** `modal_af2m_c3_complex.py` — ColabFold **AF2-multimer v3** (same predictor family as BindCraft; Boltz deliberately excluded), isolated volume `c3-af2m-runs` / prefix `c3_ecd_complex_20261024/` (does *not* touch the live C4 job on `rfd4-runs`), remote driver + per-design idempotent resume.
+- **Gate + docs:** `scripts/c3_screen_gate_20261024.py` (derives the floor from v6 BindCraft's *own* iPTM in this screen, not a hardcoded 0.76), `results/c3_screen_20261024.md`, and HANDOFF_KIMI.md all written.
+
+**In flight:** single-complex **smoke test** (the l57 complex) is running — image built successfully (jax-0.4.23/chex-0.1.90 version warning noted; validating at runtime before committing to 44). GPU container is cold-starting + downloading AF2 weights. A monitor is watching for the iPTM result.
+
+I'm deliberately **not** launching the 44-complex detached run until the smoke confirms the image actually folds and parses — that's the GPU-frugal, "smallest reliable" path. I'll report the smoke iPTM (and whether the jax pin holds) as soon as it lands, then launch `main --detach` and record the app/call ID.
+
+I'll wait for this monitor (`bjr21f0jm`) to fire on the fold result or client exit. The smoke test is validating the full path — image, weights download, MSA, 5-model AF2-multimer fold, and score parsing — on one complex before I commit GPU to the 44. I'll report the iPTM and launch the detached 44-complex run the moment it validates.
+
+I'll wait for monitor `bgplqnj5k`. This smoke run on one complex is the real validation point — it confirms whether the ColabFold/jax image actually folds (the jax-0.4.23 pin is still unproven) and seeds the weights cache for the 44-run. I'll report the iPTM and either launch the detached 44 or fix the image, as the result dictates.
+
+The extended monitor (`b98k7b380`, up to 30 min) is watching. 
+
+**Current state:** The image is built; the smoke run (app `ap-6dP6d4hZwazltGxcjltia1`) is in GPU cold-start — pulling the large (~10 GB) CUDA/ColabFold image onto a fresh L40S worker before the fold can begin. No fold output or jax error yet, so the jax-0.4.23 viability is still unconfirmed. Once a task appears, it'll download the AF2 weights (seeding the cache for the 44-run) and fold the l57 complex.
+
+I'll report the moment the smoke either returns an iPTM (→ I launch the detached 44-complex `main`) or throws a jax/import error (→ I repin jax to `[cuda12]==0.4.38` to match ColabFold's own resolution and rebuild). Nothing destructive is in flight and v6 remains untouched.
+/Users/ricardo/.local/share/agent-backend/agent-run.sh: line 45: 40695 Alarm clock: 14         "$@" 0<&0
+
+C3_SCREEN_EXIT=142

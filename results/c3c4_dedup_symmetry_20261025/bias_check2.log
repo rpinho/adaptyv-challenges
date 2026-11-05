@@ -1,5 +1,0 @@
-fixed_only edges (corrected but not frozen): 0
-by arm pair: {}
-
-frozen-only: 131
-by arm pair: {('depth_arm', 'r2_111'): 49, ('depth_arm', 'v8_r1'): 42, ('depth_arm', 'depth_arm'): 40}

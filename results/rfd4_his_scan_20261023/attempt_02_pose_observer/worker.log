@@ -1,0 +1,28 @@
+Environment variable CCD_MIRROR_PATH not set. Will not be able to use function requiring this variable. To set it you may:
+  (1) add the line 'export VAR_NAME=path/to/variable' to your .bashrc or .zshrc file
+  (2) set it in your current shell with 'export VAR_NAME=path/to/variable'
+  (3) write it to a .env file in the root of the atomworks.io repository
+Environment variable PDB_MIRROR_PATH not set. Will not be able to use function requiring this variable. To set it you may:
+  (1) add the line 'export VAR_NAME=path/to/variable' to your .bashrc or .zshrc file
+  (2) set it in your current shell with 'export VAR_NAME=path/to/variable'
+  (3) write it to a .env file in the root of the atomworks.io repository
+/Users/ricardo/.cache/adaptyv-c4/his_scan_cpu/venv/lib/python3.12/site-packages/astor/op_util.py:92: DeprecationWarning: ast.Num is deprecated and will be removed in Python 3.14; use ast.Constant instead
+  precedence_data = dict((getattr(ast, x, None), z) for x, y, z in op_data)
+Traceback (most recent call last):
+  File "/Users/ricardo/dev/adaptyv-c4/results/generation_pivot/run_his_scan_cpu.py", line 188, in <module>
+    worker(args.job_index)
+  File "/Users/ricardo/dev/adaptyv-c4/results/generation_pivot/run_his_scan_cpu.py", line 128, in worker
+    result = metric.compute(array)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ricardo/.cache/adaptyv-c4/his_scan_cpu/venv/lib/python3.12/site-packages/rfproteina/metrics/physics/tmol_block_pair_metric.py", line 148, in compute
+    return self._compute(predicted_atom_array)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ricardo/.cache/adaptyv-c4/his_scan_cpu/venv/lib/python3.12/site-packages/rfproteina/metrics/physics/tmol_block_pair_metric.py", line 263, in _compute
+    ddg_wt = score_block_pair(wt, mask_residue, mask_binder, self._sfxn)["interface_ddg"]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ricardo/dev/adaptyv-c4/results/generation_pivot/run_his_scan_cpu.py", line 94, in observe_score
+    if current.ndim == 3:
+       ^^^^^^^^^^^^
+  File "/Users/ricardo/.cache/adaptyv-c4/his_scan_cpu/venv/lib/python3.12/site-packages/biotite/structure/atoms.py", line 324, in __getattr__
+    raise AttributeError(
+AttributeError: 'AtomArray' object has no attribute 'ndim'

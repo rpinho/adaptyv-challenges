@@ -1,0 +1,14 @@
+[
+  {
+    "gpu": "T4",
+    "error": "RemoteError('')"
+  },
+  {
+    "gpu": "L4",
+    "error": "ConflictError('function fu-6RViStPWF9znboCK8EedJN is stopped')"
+  },
+  {
+    "gpu": "A10G",
+    "error": "ConflictError('function fu-y3El7GAMaAaSHKNiO8dE16 is stopped')"
+  }
+]

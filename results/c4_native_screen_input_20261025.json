@@ -1,0 +1,32 @@
+{
+ "rule": "Kimi 2026-10-25 \u00a73.4 frozen pre-native manifest",
+ "n": 60,
+ "unique_sequences": 60,
+ "group_counts": {
+  "A": 20,
+  "B": 20,
+  "C": 20
+ },
+ "apical_iptm_min_for_C": 0.6,
+ "excluded_without_valid_score": [
+  "tfr1_c4_acid_site1_41"
+ ],
+ "expected_missing_binder": "tfr1_c4_acid_site1_41",
+ "pilot_12": [
+  "tfr1_c4_acid_site2_1",
+  "tfr1_c4_acid_site2_197",
+  "tfr1_c4_acid_site2_73",
+  "tfr1_c4_acid_site1_156",
+  "tfr1_c4_acid_site1_147",
+  "tfr1_c4_acid_site2_12",
+  "tfr1_c4_acid_site1_162",
+  "tfr1_c4_acid_site1_0",
+  "tfr1_c4_acid_site1_53",
+  "tfr1_c4_acid_site1_73",
+  "tfr1_c4_acid_site1_123",
+  "tfr1_c4_acid_site1_152"
+ ],
+ "source_consolidated": "results/c4_apical_consolidated_results.json",
+ "source_preview": "results/c4_apical_preview_20261024.csv",
+ "manifest_sha256": "b2d00bd5e9e42e0a4baa54c93a36121aa51ee2c7d706b65bb6f255536d75bd6f"
+}

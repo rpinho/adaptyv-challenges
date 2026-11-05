@@ -1,0 +1,23 @@
+sign controls: {"null_L": 0.0, "acid_on_L": 0.5918, "acid_off_L": -0.4539, "null_ok": true, "acid_on_ok": true, "acid_off_ok": true, "all_ok": true}
+tfr1_c4_acid_site2_1           H= 4 L(5.5/7.4)=-0.148 L(6.0/7.4)=0.008
+tfr1_c4_acid_site2_197         H= 4 L(5.5/7.4)=-0.537 L(6.0/7.4)=-0.429
+tfr1_c4_acid_site2_73          H= 3 L(5.5/7.4)=-2.921 L(6.0/7.4)=-1.911
+tfr1_c4_acid_site1_156         H= 5 L(5.5/7.4)=2.083 L(6.0/7.4)=1.68
+tfr1_c4_acid_site1_143         H= 8 L(5.5/7.4)=-2.933 L(6.0/7.4)=-1.78
+tfr1_c4_acid_site2_171         H= 3 L(5.5/7.4)=1.312 L(6.0/7.4)=0.858
+tfr1_c4_acid_site2_169         H= 8 L(5.5/7.4)=-2.261 L(6.0/7.4)=-1.253
+tfr1_c4_acid_site2_4           H= 5 L(5.5/7.4)=-1.615 L(6.0/7.4)=-0.918
+tfr1_c4_acid_site1_1           H= 3 L(5.5/7.4)=1.432 L(6.0/7.4)=0.685
+tfr1_c4_acid_site1_144         H=10 L(5.5/7.4)=0.113 L(6.0/7.4)=0.538
+tfr1_c4_acid_site2_74          H= 3 L(5.5/7.4)=1.464 L(6.0/7.4)=0.901
+tfr1_c4_acid_site2_62          H= 8 L(5.5/7.4)=-0.124 L(6.0/7.4)=0.036
+tfr1_c4_acid_site1_174         H= 6 L(5.5/7.4)=-0.174 L(6.0/7.4)=-0.181
+tfr1_c4_acid_site1_56          H= 6 L(5.5/7.4)=0.981 L(6.0/7.4)=0.796
+tfr1_c4_acid_site1_137         H= 3 L(5.5/7.4)=2.188 L(6.0/7.4)=1.58
+tfr1_c4_acid_site2_92          H= 7 L(5.5/7.4)=0.138 L(6.0/7.4)=-0.003
+tfr1_c4_acid_site2_155         H= 4 L(5.5/7.4)=1.002 L(6.0/7.4)=0.713
+tfr1_c4_acid_site2_137         H= 5 L(5.5/7.4)=0.555 L(6.0/7.4)=0.318
+tfr1_c4_acid_site1_177         H= 7 L(5.5/7.4)=-1.693 L(6.0/7.4)=-1.063
+tfr1_c4_acid_site2_52          H= 7 L(5.5/7.4)=-1.2 L(6.0/7.4)=-0.603
+
+wrote /Users/ricardo/dev/adaptyv-c4/results/c4_linkage_audit_20261025

@@ -1,0 +1,19 @@
+PASS  rc=3 wrote=False  scores 43/44 (one row removed)
+PASS  rc=3 wrote=False  anchor row missing
+PASS  rc=4 wrote=False  refold record absent for an eligible candidate
+PASS  exclusion-check  eligible candidate below the floor (promoted 20 rows, victim absent=True)
+PASS  rc=3 wrote=False  BindCraft anchor removed from scores
+PASS  rc=4 wrote=False  duplicate design name
+PASS  rc=4 wrote=False  duplicate sequence in shortlist
+PASS  rc=4 wrote=False  no c3_v_* replacement slots available
+PASS  rc=4 wrote=False  refold evidence bound to a different sequence
+PASS  rc=4 wrote=False  structural evidence bound to a different sequence
+PASS  rc=3 wrote=False  all candidate backbones near-identical (no gain)
+PASS  rc=4 wrote=False  backbone cluster evidence incomplete
+PASS  rc=4 wrote=False  common v6 row altered
+PASS  rc=4 wrote=False  empty evidence JSON
+PASS  rc=4 wrote=False  malformed evidence JSON
+PASS  rc=0 wrote=True  CONTROL unmutated (must promote)
+
+15/15 fixtures fail closed; control ok
+workspace: /var/folders/7p/z8kq6zz94wj03gxlv_ltjtch0000gn/T/c3fx_ejty4of6

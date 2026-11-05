@@ -1,0 +1,30 @@
+loaded 80 candidate rows from 1 file(s)
+Experimental hypothesis order: His-N/basic-group proximity, His-ring/receptor proximity, then geometry.
+Contact tiers are not pH selectivity, protonation, affinity or acceptance predictions.
+ranked 80 rows into 62 sequence families at >=60% local identity
+wrote results/rfd4_final_review_20261023/shortlist20.csv  (20 rows)
+wrote results/rfd4_final_review_20261023/shortlist20.provenance.json
+
+rank  name                   len  family  hotspot  clash_fraction  bad_bond_fraction
+   1  tfr1_c200m_20261023__tfr1_apical_binder_126    73       0  1.0  0.0  0.0  His-N/basic-group proximity hypothesis
+   2  tfr1_his020_200m_20261023__tfr1_apical_his_70   117       1  1.0  0.0  0.0  His-N/basic-group proximity hypothesis
+   3  tfr1_his020_200m_20261023__tfr1_apical_his_86    97       2  1.0  0.0  0.0  His-N/basic-group proximity hypothesis
+   4  tfr1_his030_200m_20261023__tfr1_apical_his_115   113       3  1.0  0.0  0.0  His-N/basic-group proximity hypothesis
+   5  tfr1_his030_200m_20261023__tfr1_apical_his_121    96       4  1.0  0.0  0.0  His-N/basic-group proximity hypothesis
+   6  tfr1_his030_200m_20261023__tfr1_apical_his_144   105       1  1.0  0.0  0.0  His-N/basic-group proximity hypothesis
+   7  tfr1_his030_200m_20261023__tfr1_apical_his_169    84       5  1.0  0.0  0.0  His-N/basic-group proximity hypothesis
+   8  tfr1_his030_200m_20261023__tfr1_apical_his_23   119       6  1.0  0.0  0.0  His-N/basic-group proximity hypothesis
+   9  tfr1_his030_200m_20261023__tfr1_apical_his_64    98       6  1.0  0.0  0.0  His-N/basic-group proximity hypothesis
+  10  tfr1_his030_200m_20261023__tfr1_apical_his_68    92       7  1.0  0.0  0.0  His-N/basic-group proximity hypothesis
+  11  tfr1_his030_200m_20261023__tfr1_apical_his_70   117       1  1.0  0.0  0.0  His-N/basic-group proximity hypothesis
+  12  tfr1_his030_200m_20261023__tfr1_apical_his_77    99       8  1.0  0.0  0.0  His-N/basic-group proximity hypothesis
+  13  tfr1_his200m_20261023__tfr1_apical_his_148    78       9  1.0  0.0  0.0  His-N/basic-group proximity hypothesis
+  14  tfr1_his200m_20261023__tfr1_apical_his_68    92      10  1.0  0.0  0.0  His-N/basic-group proximity hypothesis
+  15  tfr1_his020_200m_20261023__tfr1_apical_his_13    80      11  0.9  0.0  0.0  His-N/basic-group proximity hypothesis
+  16  tfr1_his020_200m_20261023__tfr1_apical_his_147   121      12  0.9  0.0  0.0  His-N/basic-group proximity hypothesis
+  17  tfr1_his020_200m_20261023__tfr1_apical_his_152   101      13  0.9  0.0  0.0  His-N/basic-group proximity hypothesis
+  18  tfr1_his030_200m_20261023__tfr1_apical_his_1    78       6  0.9  0.0  0.0  His-N/basic-group proximity hypothesis
+  19  tfr1_his030_200m_20261023__tfr1_apical_his_133    73      14  0.9  0.0  0.0  His-N/basic-group proximity hypothesis
+  20  tfr1_his030_200m_20261023__tfr1_apical_his_142   117       8  0.9  0.0  0.0  His-N/basic-group proximity hypothesis
+
+next: python scripts/build_submission.py results/rfd4_final_review_20261023/shortlist20.csv -o submission/round4.csv

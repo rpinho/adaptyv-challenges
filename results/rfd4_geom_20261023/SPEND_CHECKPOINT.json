@@ -1,0 +1,14 @@
+{
+  "recorded_at": "2026-10-23T11:53:58.249686+00:00",
+  "state": "running",
+  "sample_directories_visible": {
+    "plain": 200,
+    "his": 200
+  },
+  "directory_count_is_not_acceptance": true,
+  "recorded_runpod_usd": 56.5899880444631,
+  "prior_own_modal_estimate_usd": 10.718947158590089,
+  "new_modal_gpu_cost_upper_estimate_usd": 2.842691102344,
+  "host_charges_unreconciled": true,
+  "actual_account_bill_verified": false
+}

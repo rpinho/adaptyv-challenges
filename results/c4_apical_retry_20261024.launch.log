@@ -1,0 +1,16 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/pinho-ricardo/main/ap-x8qUMEomla0Dhcf7x8Zzb8
+✓ Created objects.
+├── 🔨 Created mount /Users/ricardo/dev/adaptyv-c4/modal_boltz2_apical.py
+├── 🔨 Created function read_consolidated.
+├── 🔨 Created function run_all.
+├── 🔨 Created function predict_one_long.
+├── 🔨 Created function predict_one.
+└── 🔨 Created function retry_one_driver.
+Retrying ONLY tfr1_c4_acid_site1_41 (100 res) vs contiguous apical 195-mer; 342 valid designs untouched
+Spawned retry_one_driver; function call id = fc-01M5QM4HY72W1JDNVQPVZFZQ6E
+Outputs: rfd4-runs:boltz2_c4_apical/  (this design + updated consolidated_results.json)
+[modal-client] 2026-10-24T14:53:07-0400 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/pinho-ricardo/main/ap-x8qUMEomla0Dhcf7x8Zzb8

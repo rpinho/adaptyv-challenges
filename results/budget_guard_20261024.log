@@ -1,0 +1,12 @@
+2026-10-24 18:12:16 billed=181.57 c3=ephemeral (detached)
+2026-10-24 18:15:18 billed=182.46 c3=ephemeral (detached)
+2026-10-24 18:16:16 billed=181.90 c3=ephemeral (detached)
+2026-10-24 18:19:18 billed=183.92 c3=ephemeral (detached)
+2026-10-24 18:22:19 billed=185.46 c3=ephemeral (detached)
+2026-10-24 18:25:20 billed=186.06 c3=ephemeral (detached)
+2026-10-24 18:28:22 billed=187.77 c3=ephemeral (detached)
+2026-10-24 18:31:23 billed=188.52 c3=ephemeral (detached)
+2026-10-24 18:34:25 billed=189.70 c3=ephemeral (detached)
+2026-10-24 18:37:26 billed=191.40 c3=ephemeral (detached)
+2026-10-24 18:37:26 STOPPING C3: billed=191.40 (threshold 190 / projection>200)
+2026-10-24 18:37:27 stop issued; final billed=

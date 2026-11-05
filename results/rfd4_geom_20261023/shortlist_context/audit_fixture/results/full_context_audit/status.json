@@ -1,0 +1,18 @@
+{
+  "status": "completed",
+  "candidates": 20,
+  "rigid_context_pass": 20,
+  "backbone_clash_failures": 0,
+  "rmsd_range": [
+    0.21696273514885298,
+    0.3449319877045639
+  ],
+  "well_aligned_under2A": 20,
+  "well_aligned_backbone_clash_failures": 0,
+  "source_template_sha256": "4eaa5db67ed83a896713c4b42d1dc214c778bdac240fdf3a9a82e86a66f79495",
+  "script_sha256": "2f8f453ac6e90cca7c29c03b58d61a9c5ecde0c533ff7f6b3bc42ccf0dd76251",
+  "helper_sha256": "0f408034f943a03bb34558ce8222666af5fb9276d62397e39fc4738bab75b3d2",
+  "started": 1792757742.613576,
+  "finished": 1792757745.387973,
+  "new_gpu_spend_usd": 0
+}

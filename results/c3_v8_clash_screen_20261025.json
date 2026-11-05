@@ -1,0 +1,199 @@
+[
+ {
+  "name": "c3_bc_l70_7781fe",
+  "min_dist": 1.498,
+  "clash_pairs": 5,
+  "atoms": [
+   "ARG44:NH2",
+   "ARG15:NH1"
+  ],
+  "note": "ok"
+ },
+ {
+  "name": "c3_bc_l65_8f7b63",
+  "min_dist": 2.165,
+  "clash_pairs": 0,
+  "atoms": [
+   "ARG21:NH1",
+   "PRO62:CB"
+  ],
+  "note": "ok"
+ },
+ {
+  "name": "c3_bc_l57_fbcf76",
+  "min_dist": 2.33,
+  "clash_pairs": 0,
+  "atoms": [
+   "ASN31:OD1",
+   "ARG15:NH1"
+  ],
+  "note": "ok"
+ },
+ {
+  "name": "c3_bc_l100_c674f8",
+  "min_dist": 1.763,
+  "clash_pairs": 1,
+  "atoms": [
+   "TYR89:CE2",
+   "GLN9:NE2"
+  ],
+  "note": "ok"
+ },
+ {
+  "name": "c3_bc_l99_e26aff",
+  "min_dist": 1.476,
+  "clash_pairs": 1,
+  "atoms": [
+   "TYR96:OH",
+   "TRP5:NE1"
+  ],
+  "note": "ok"
+ },
+ {
+  "name": "c3_bc_l52_6950ff",
+  "min_dist": 1.182,
+  "clash_pairs": 2,
+  "atoms": [
+   "ARG27:NH2",
+   "GLU99:OE1"
+  ],
+  "note": "ok"
+ },
+ {
+  "name": "c3_bc_l100_4bd789",
+  "min_dist": 0.987,
+  "clash_pairs": 4,
+  "atoms": [
+   "LYS84:NZ",
+   "GLU99:OE1"
+  ],
+  "note": "ok"
+ },
+ {
+  "name": "c3_bc_l78_3d63fd",
+  "min_dist": 1.714,
+  "clash_pairs": 2,
+  "atoms": [
+   "HIS22:CD2",
+   "GLU100:OE2"
+  ],
+  "note": "ok"
+ },
+ {
+  "name": "c3_glp1r_ecd_26",
+  "min_dist": 2.45,
+  "clash_pairs": 0,
+  "atoms": [
+   "ASP17:OD2",
+   "ARG12:NE"
+  ],
+  "note": "ok"
+ },
+ {
+  "name": "c3_glp1r_ecd_188",
+  "min_dist": 2.041,
+  "clash_pairs": 0,
+  "atoms": [
+   "LEU47:CD2",
+   "LEU4:CD1"
+  ],
+  "note": "ok"
+ },
+ {
+  "name": "c3_glp1r_ecd_132",
+  "min_dist": 2.555,
+  "clash_pairs": 0,
+  "atoms": [
+   "LYS33:NZ",
+   "GLU40:OE1"
+  ],
+  "note": "ok"
+ },
+ {
+  "name": "c3_glp1r_ecd_14",
+  "min_dist": 2.162,
+  "clash_pairs": 0,
+  "atoms": [
+   "GLU42:OE2",
+   "ARG15:NH2"
+  ],
+  "note": "ok"
+ },
+ {
+  "name": "c3_glp1r_ecd_46",
+  "min_dist": 2.307,
+  "clash_pairs": 0,
+  "atoms": [
+   "GLN39:NE2",
+   "PRO91:O"
+  ],
+  "note": "ok"
+ },
+ {
+  "name": "c3_glp1r_ecd_127",
+  "min_dist": 2.108,
+  "clash_pairs": 0,
+  "atoms": [
+   "GLU31:OE1",
+   "ARG12:NH2"
+  ],
+  "note": "ok"
+ },
+ {
+  "name": "B_26102611_s1",
+  "min_dist": null,
+  "clash_pairs": null,
+  "atoms": null,
+  "note": "NO PDB"
+ },
+ {
+  "name": "c3_glp1r_ecd_172",
+  "min_dist": 2.506,
+  "clash_pairs": 0,
+  "atoms": [
+   "TRP16:CD1",
+   "GLU100:OE2"
+  ],
+  "note": "ok"
+ },
+ {
+  "name": "c3_glp1r_ecd_171",
+  "min_dist": 2.475,
+  "clash_pairs": 0,
+  "atoms": [
+   "GLU53:OE2",
+   "ARG12:NH2"
+  ],
+  "note": "ok"
+ },
+ {
+  "name": "c3_glp1r_ecd_29",
+  "min_dist": 2.22,
+  "clash_pairs": 0,
+  "atoms": [
+   "ARG40:O",
+   "GLU6:OE2"
+  ],
+  "note": "ok"
+ },
+ {
+  "name": "c3_glp1r_ecd_12",
+  "min_dist": 0.967,
+  "clash_pairs": 5,
+  "atoms": [
+   "GLU34:CD",
+   "LEU90:CD1"
+  ],
+  "note": "ok"
+ },
+ {
+  "name": "c3_glp1r_ecd_151",
+  "min_dist": 2.07,
+  "clash_pairs": 0,
+  "atoms": [
+   "THR42:OG1",
+   "GLU100:OE1"
+  ],
+  "note": "ok"
+ }
+]

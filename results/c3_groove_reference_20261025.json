@@ -1,0 +1,33 @@
+{
+  "reference_cif": "results/pods/c3_glp1r/3_Ranked/c3_glp1r_ecd_groove_forced_l57_fbcf76afc72c5634_seq0.cif",
+  "target_chain_residues": 111,
+  "binder_chain_residues": 57,
+  "cutoff_a": 5.0,
+  "groove_residues_1based": [
+    2,
+    3,
+    4,
+    5,
+    7,
+    8,
+    9,
+    11,
+    12,
+    15,
+    39,
+    40,
+    41,
+    60,
+    61,
+    62,
+    63,
+    93,
+    95,
+    96,
+    98,
+    99,
+    100
+  ],
+  "n_groove_residues": 23,
+  "note": "Target residues (1-based, chain A of the reference CIF) within 5.0 A of the reference binder. Defined ONCE and reused for every candidate."
+}

@@ -1,0 +1,248 @@
+{
+  "checks": [
+    {
+      "status": "ok",
+      "detail": "baseline v6 sha256 matches the recorded value"
+    },
+    {
+      "status": "ok",
+      "detail": "screen complete 44/44 with unique names"
+    },
+    {
+      "status": "ok",
+      "detail": "all 8 BindCraft anchors scored"
+    },
+    {
+      "status": "ok",
+      "detail": "floor = max(0.76, 0.850) = 0.850"
+    },
+    {
+      "status": "ok",
+      "detail": "refold + structural evidence present and sequence-bound for all 24 candidates"
+    },
+    {
+      "status": "info",
+      "detail": "18 shortlist candidates rejected; 6 fully eligible: ['c3_glp1r_ecd_26', 'c3_glp1r_ecd_188', 'c3_glp1r_ecd_132', 'c3_glp1r_ecd_14', 'c3_glp1r_ecd_46', 'c3_glp1r_ecd_127']"
+    },
+    {
+      "status": "ok",
+      "detail": "6 replacement(s) chosen: ['c3_glp1r_ecd_26', 'c3_glp1r_ecd_188', 'c3_glp1r_ecd_132', 'c3_glp1r_ecd_14', 'c3_glp1r_ecd_46', 'c3_glp1r_ecd_127']"
+    },
+    {
+      "status": "ok",
+      "detail": "CSV integrity: 20 rows, unique, canonical, 52-100, 13 non-variant rows byte-identical and in v6 order"
+    },
+    {
+      "status": "ok",
+      "detail": "atomically wrote /Users/ricardo/dev/adaptyv-c4/results/c3_submission_v7_20261025.csv | wrote_v7=true"
+    }
+  ],
+  "wrote_v7": "/Users/ricardo/dev/adaptyv-c4/results/c3_submission_v7_20261025.csv",
+  "exit_code": 0,
+  "rejected": [
+    {
+      "name": "c3_glp1r_ecd_51",
+      "reasons": [
+        "refold_fail",
+        "refold_frac70_lt0.90",
+        "refold_plddt_lt80",
+        "refold_rmsd_gt3"
+      ],
+      "iptm": 0.92
+    },
+    {
+      "name": "c3_glp1r_ecd_128",
+      "reasons": [
+        "refold_fail",
+        "refold_frac70_lt0.90"
+      ],
+      "iptm": 0.91
+    },
+    {
+      "name": "c3_glp1r_ecd_92",
+      "reasons": [
+        "refold_fail",
+        "refold_frac70_lt0.90",
+        "refold_plddt_lt80",
+        "refold_rmsd_gt3"
+      ],
+      "iptm": 0.91
+    },
+    {
+      "name": "c3_glp1r_ecd_40",
+      "reasons": [
+        "refold_fail",
+        "refold_frac70_lt0.90"
+      ],
+      "iptm": 0.9
+    },
+    {
+      "name": "c3_glp1r_ecd_33",
+      "reasons": [
+        "clash_lt2A",
+        "structural_fail"
+      ],
+      "iptm": 0.9
+    },
+    {
+      "name": "c3_glp1r_ecd_70",
+      "reasons": [
+        "clash_lt2A",
+        "refold_fail",
+        "refold_frac70_lt0.90",
+        "structural_fail"
+      ],
+      "iptm": 0.89
+    },
+    {
+      "name": "c3_glp1r_ecd_4",
+      "reasons": [
+        "clash_lt2A",
+        "structural_fail"
+      ],
+      "iptm": 0.89
+    },
+    {
+      "name": "c3_glp1r_ecd_153",
+      "reasons": [
+        "clash_lt2A",
+        "structural_fail"
+      ],
+      "iptm": 0.87
+    },
+    {
+      "name": "c3_glp1r_ecd_22",
+      "reasons": [
+        "chain_integrity",
+        "clash_lt2A",
+        "refold_fail",
+        "refold_frac70_lt0.90",
+        "structural_fail"
+      ],
+      "iptm": 0.86
+    },
+    {
+      "name": "c3_glp1r_ecd_193",
+      "reasons": [
+        "below_floor",
+        "clash_lt2A",
+        "refold_fail",
+        "refold_frac70_lt0.90",
+        "structural_fail"
+      ],
+      "iptm": 0.84
+    },
+    {
+      "name": "c3_glp1r_ecd_182",
+      "reasons": [
+        "below_floor"
+      ],
+      "iptm": 0.82
+    },
+    {
+      "name": "c3_glp1r_ecd_192",
+      "reasons": [
+        "below_floor",
+        "chain_integrity",
+        "clash_lt2A",
+        "structural_fail"
+      ],
+      "iptm": 0.8
+    },
+    {
+      "name": "c3_glp1r_ecd_5",
+      "reasons": [
+        "below_floor",
+        "clash_lt2A",
+        "structural_fail"
+      ],
+      "iptm": 0.65
+    },
+    {
+      "name": "c3_glp1r_ecd_103",
+      "reasons": [
+        "below_floor",
+        "binder_plddt_lt80",
+        "refold_fail",
+        "refold_rmsd_gt3",
+        "structural_fail"
+      ],
+      "iptm": 0.59
+    },
+    {
+      "name": "c3_glp1r_ecd_176",
+      "reasons": [
+        "below_floor",
+        "binder_plddt_lt80",
+        "chain_integrity",
+        "clash_lt2A",
+        "structural_fail"
+      ],
+      "iptm": 0.37
+    },
+    {
+      "name": "c3_glp1r_ecd_7",
+      "reasons": [
+        "below_floor",
+        "binder_plddt_lt80",
+        "clash_lt2A",
+        "refold_fail",
+        "refold_frac70_lt0.90",
+        "refold_plddt_lt80",
+        "refold_rmsd_gt3",
+        "structural_fail"
+      ],
+      "iptm": 0.3
+    },
+    {
+      "name": "c3_glp1r_ecd_154",
+      "reasons": [
+        "below_floor",
+        "binder_plddt_lt80",
+        "clash_lt2A",
+        "structural_fail"
+      ],
+      "iptm": 0.22
+    },
+    {
+      "name": "c3_glp1r_ecd_198",
+      "reasons": [
+        "below_floor",
+        "binder_plddt_lt80",
+        "chain_integrity",
+        "clash_lt2A",
+        "refold_fail",
+        "refold_frac70_lt0.90",
+        "refold_rmsd_gt3",
+        "structural_fail"
+      ],
+      "iptm": 0.22
+    }
+  ],
+  "placed": [
+    {
+      "added": "c3_glp1r_ecd_26",
+      "replaced": "c3_v_l100_E79Q_E93Q"
+    },
+    {
+      "added": "c3_glp1r_ecd_188",
+      "replaced": "c3_v_l57_F38Y"
+    },
+    {
+      "added": "c3_glp1r_ecd_132",
+      "replaced": "c3_v_l57_Q18K"
+    },
+    {
+      "added": "c3_glp1r_ecd_14",
+      "replaced": "c3_v_l57_Q18K_F38Y"
+    },
+    {
+      "added": "c3_glp1r_ecd_46",
+      "replaced": "c3_v_l65_E5Q_E53Q"
+    },
+    {
+      "added": "c3_glp1r_ecd_127",
+      "replaced": "c3_v_l65_E53Q"
+    }
+  ]
+}

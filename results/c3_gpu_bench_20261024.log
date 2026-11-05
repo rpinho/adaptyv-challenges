@@ -1,0 +1,21 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/pinho-ricardo/main/ap-yekCfAiO1POHsSbJy7sk8X
+✓ Created objects.
+├── ✓ Uploaded /Users/ricardo/dev/adaptyv-c4/modal_af2m_bench.py
+├── ✓ Uploaded /Users/ricardo/dev/adaptyv-c4/modal_af2m_c3_complex.py
+├── ✓ Uploaded 
+│   /Users/ricardo/dev/adaptyv-c4/results/c3_screen_input_20261024.csv
+├── ✓ Created Function bench_l4.
+├── ✓ Created Function bench_l40s.
+├── ✓ Created Function bench_t4.
+└── ✓ Created Function bench_a10g.
+bench design c3_glp1r_ecd_40 len=73+111
+Stopping app - user stopped from CLI.
+[T4] FAILED RemoteError('')
+[L4] FAILED ConflictError('function fu-6RViStPWF9znboCK8EedJN is stopped')
+[A10G] FAILED ConflictError('function fu-y3El7GAMaAaSHKNiO8dE16 is stopped')
+wrote /Users/ricardo/dev/adaptyv-c4/results/c3_gpu_bench_20261024.json
+Runner terminated.
+✓ App completed. View run at 
+https://modal.com/apps/pinho-ricardo/main/ap-yekCfAiO1POHsSbJy7sk8X

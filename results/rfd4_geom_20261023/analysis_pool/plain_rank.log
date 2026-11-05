@@ -1,0 +1,30 @@
+loaded 200 candidate rows from 1 file(s)
+RFD4 ordinal geometry triage: hotspot obedience descending, clashes/bad bonds ascending.
+Missing geometry stays unknown; no confidence, affinity, pH or official-acceptance score inferred.
+ranked 200 rows into 99 sequence families at >=60% local identity
+wrote results/rfd4_geom_20261023/analysis_pool/plain20.csv  (20 rows)
+wrote results/rfd4_geom_20261023/analysis_pool/plain20.provenance.json
+
+rank  name                   len  family  hotspot  clash_fraction  bad_bond_fraction
+   1  tfr1_c200m_20261023__tfr1_apical_binder_126    73       0  1.0  0.0  0.0  
+   2  tfr1_c200m_20261023__tfr1_apical_binder_138   115       1  1.0  0.0  0.0  
+   3  tfr1_c200m_20261023__tfr1_apical_binder_177    84       2  1.0  0.0  0.0  
+   4  tfr1_c200m_20261023__tfr1_apical_binder_186   130       3  1.0  0.0  0.0  
+   5  tfr1_c200m_20261023__tfr1_apical_binder_187    69       4  1.0  0.0  0.0  
+   6  tfr1_c200m_20261023__tfr1_apical_binder_58    84       5  1.0  0.0  0.0  
+   7  tfr1_c200m_20261023__tfr1_apical_binder_94    72       6  1.0  0.0  0.0  
+   8  tfr1_c200m_20261023__tfr1_apical_binder_108    66       7  0.9  0.0  0.0  
+   9  tfr1_c200m_20261023__tfr1_apical_binder_12   125       8  0.9  0.0  0.0  
+  10  tfr1_c200m_20261023__tfr1_apical_binder_120   128       9  0.9  0.0  0.0  
+  11  tfr1_c200m_20261023__tfr1_apical_binder_123    93      10  0.9  0.0  0.0  
+  12  tfr1_c200m_20261023__tfr1_apical_binder_125    92      11  0.9  0.0  0.0  
+  13  tfr1_c200m_20261023__tfr1_apical_binder_129    80      12  0.9  0.0  0.0  
+  14  tfr1_c200m_20261023__tfr1_apical_binder_132    66      13  0.9  0.0  0.0  
+  15  tfr1_c200m_20261023__tfr1_apical_binder_136    85      14  0.9  0.0  0.0  
+  16  tfr1_c200m_20261023__tfr1_apical_binder_137   123      15  0.9  0.0  0.0  
+  17  tfr1_c200m_20261023__tfr1_apical_binder_144   105      16  0.9  0.0  0.0  
+  18  tfr1_c200m_20261023__tfr1_apical_binder_156    65      17  0.9  0.0  0.0  
+  19  tfr1_c200m_20261023__tfr1_apical_binder_166    89      18  0.9  0.0  0.0  
+  20  tfr1_c200m_20261023__tfr1_apical_binder_168   110      19  0.9  0.0  0.0  
+
+next: python scripts/build_submission.py results/rfd4_geom_20261023/analysis_pool/plain20.csv -o submission/round4.csv

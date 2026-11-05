@@ -1,0 +1,28 @@
+wrote results/rfd4_geom_20261023/review/first_pair_review_only.csv  (submission, 20/20 rows, Track 3)
+wrote results/rfd4_geom_20261023/review/first_pair_review_only.manifest.json
+
+Twin-Strep tag: excluded  [UNVERIFIED -- confirm in the portal]
+
+rank  name                              len  class
+   1  tfr1_his200m_20261023__tfr1_apical_his_124   67  single_chain
+   2  tfr1_his200m_20261023__tfr1_apical_his_148   78  single_chain
+   3  tfr1_his200m_20261023__tfr1_apical_his_179   93  single_chain
+   4  tfr1_his200m_20261023__tfr1_apical_his_21  101  single_chain
+   5  tfr1_his200m_20261023__tfr1_apical_his_45   97  single_chain
+   6  tfr1_his200m_20261023__tfr1_apical_his_57  121  single_chain
+   7  tfr1_his200m_20261023__tfr1_apical_his_68   92  single_chain
+   8  tfr1_his200m_20261023__tfr1_apical_his_82  101  single_chain
+   9  tfr1_c200m_20261023__tfr1_apical_binder_126   73  single_chain
+  10  tfr1_c200m_20261023__tfr1_apical_binder_138  115  single_chain
+  11  tfr1_c200m_20261023__tfr1_apical_binder_177   84  single_chain
+  12  tfr1_c200m_20261023__tfr1_apical_binder_186  130  single_chain
+  13  tfr1_c200m_20261023__tfr1_apical_binder_187   69  single_chain
+  14  tfr1_c200m_20261023__tfr1_apical_binder_58   84  single_chain
+  15  tfr1_c200m_20261023__tfr1_apical_binder_94   72  single_chain
+  16  tfr1_his200m_20261023__tfr1_apical_his_1   78  single_chain
+  17  tfr1_his200m_20261023__tfr1_apical_his_115  113  single_chain
+  18  tfr1_his200m_20261023__tfr1_apical_his_121   96  single_chain
+  19  tfr1_his200m_20261023__tfr1_apical_his_133   73  single_chain
+  20  tfr1_his200m_20261023__tfr1_apical_his_136   85  single_chain
+
+next: python scripts/novelty_audit.py results/rfd4_geom_20261023/review/first_pair_review_only.csv --max-identity 0.30

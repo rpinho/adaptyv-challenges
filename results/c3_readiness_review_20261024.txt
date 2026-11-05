@@ -1,0 +1,12 @@
+READY — local CSV integrity only. Reviewed 2026-10-24.
+
+Exact upload filename: c3_submission_v6_20261023.csv
+Path: results/c3_submission_v6_20261023.csv
+
+Verified 20 designs. Required fields name, sequence, molecule_class are present. All rows have three populated fields and single_chain class. No malformed rows, duplicate headers, duplicate names, duplicate sequences, missing values, or surrounding whitespace. Sequences contain canonical amino acids and are 52–100 residues long. Strict parsing and in-memory CSV round-trip pass.
+
+Blockers: no local CSV-format blockers identified.
+
+Unresolved/caveats: summary composition is stale: it claims six RFD4 designs, but the file contains five (8 BindCraft + 7 variants + 5 RFD4 = 20). Variants limit independent diversity. Binding and agonism remain experimentally unverified; the summary flags limited agonism potential. Platform acceptance, eligibility, and novelty clearance were not established by these two files.
+
+Submission and summary unchanged. Nothing submitted; nobody contacted.

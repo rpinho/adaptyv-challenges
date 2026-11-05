@@ -1,0 +1,19 @@
+Environment variable CCD_MIRROR_PATH not set. Will not be able to use function requiring this variable. To set it you may:
+  (1) add the line 'export VAR_NAME=path/to/variable' to your .bashrc or .zshrc file
+  (2) set it in your current shell with 'export VAR_NAME=path/to/variable'
+  (3) write it to a .env file in the root of the atomworks.io repository
+Environment variable PDB_MIRROR_PATH not set. Will not be able to use function requiring this variable. To set it you may:
+  (1) add the line 'export VAR_NAME=path/to/variable' to your .bashrc or .zshrc file
+  (2) set it in your current shell with 'export VAR_NAME=path/to/variable'
+  (3) write it to a .env file in the root of the atomworks.io repository
+/Users/ricardo/.cache/adaptyv-c4/his_scan_cpu/venv/lib/python3.12/site-packages/astor/op_util.py:92: DeprecationWarning: ast.Num is deprecated and will be removed in Python 3.14; use ast.Constant instead
+  precedence_data = dict((getattr(ast, x, None), z) for x, y, z in op_data)
+/Users/ricardo/.cache/adaptyv-c4/his_scan_cpu/venv/lib/python3.12/site-packages/biotite/structure/io/util.py:34: RuntimeWarning: invalid value encountered in cast
+  values = values.astype(int, copy=False)
+/Users/ricardo/.cache/adaptyv-c4/his_scan_cpu/venv/lib/python3.12/site-packages/biotite/structure/io/pdb/file.py:629: DeprecationWarning: The chararray class is deprecated and will be removed in a future release. Use an ndarray with a string or bytes dtype instead.
+  record = np.char.array(np.where(array.hetero, "HETATM", "ATOM"))
+scored WT site 1
+scored ALA site 1
+scored GLN site 1
+scored HIS site 1
+{"state": "complete", "site": 1, "elapsed_seconds": 134.5561339999549}

@@ -1,0 +1,56 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/pinho-ricardo/main/ap-bRyOn8T0naTy0TFg2X5odJ
+✓ Created objects.
+├── 🔨 Created mount /Users/ricardo/dev/adaptyv-c4/modal_boltz2_apical.py
+├── 🔨 Created function predict_one.
+├── 🔨 Created function run_all.
+└── 🔨 Created function read_consolidated.
+Validated 343 candidate inputs; target = contiguous P02786 189-383 (195 res)
+Spawned durable driver run_all; function call id = fc-01M5QJ0VDC85EG4YQK96CHDB1C
+Outputs: rfd4-runs:boltz2_c4_apical/  (per-design + consolidated_results.json)
+SKIP tfr1_c4_acid_site2_27: fully validated cached outputs
+SKIP tfr1_c4_acid_site1_47: fully validated cached outputs
+SKIP tfr1_c4_acid_site2_63: fully validated cached outputs
+SKIP tfr1_c4_acid_site1_87: fully validated cached outputs
+SKIP tfr1_c4_acid_site2_135: fully validated cached outputs
+SKIP tfr1_c4_acid_site1_119: fully validated cached outputs
+SKIP tfr1_c4_acid_site2_41: fully validated cached outputs
+SKIP tfr1_c4_acid_site2_89: fully validated cached outputs
+SKIP tfr1_c4_acid_site2_12: fully validated cached outputs
+SKIP tfr1_c4_acid_site2_185: fully validated cached outputs
+SKIP tfr1_c4_acid_site2_108: fully validated cached outputs
+SKIP tfr1_c4_acid_site1_7: fully validated cached outputs
+SKIP tfr1_c4_acid_site2_156: fully validated cached outputsSKIP tfr1_c4_acid_site1_178: fully validated cached outputsSKIP tfr1_c4_acid_site2_87: fully validated cached outputs
+
+
+SKIP tfr1_c4_acid_site2_152: fully validated cached outputs
+SKIP tfr1_c4_acid_site2_9: fully validated cached outputs
+SKIP tfr1_c4_acid_site1_3: fully validated cached outputs
+SKIP tfr1_c4_acid_site2_51: fully validated cached outputs
+SKIP tfr1_c4_acid_site1_1: fully validated cached outputs
+SKIP tfr1_c4_acid_site2_92: fully validated cached outputs
+Predicting tfr1_c4_acid_site1_22 (86 res) vs apical-195
+SKIP tfr1_c4_acid_site2_136: fully validated cached outputs
+SKIP tfr1_c4_acid_site1_82: fully validated cached outputs
+SKIP tfr1_c4_acid_site2_106: fully validated cached outputs
+SKIP tfr1_c4_acid_site2_132: fully validated cached outputs
+SKIP tfr1_c4_acid_site1_170: fully validated cached outputs
+SKIP tfr1_c4_acid_site2_4: fully validated cached outputs
+SKIP tfr1_c4_acid_site2_50: fully validated cached outputs
+SKIP tfr1_c4_acid_site2_33: fully validated cached outputs
+SKIP tfr1_c4_acid_site1_94: fully validated cached outputs
+SKIP tfr1_c4_acid_site2_190: fully validated cached outputs
+SKIP tfr1_c4_acid_site1_58: fully validated cached outputsSKIP tfr1_c4_acid_site1_63: fully validated cached outputs
+SKIP tfr1_c4_acid_site2_144: fully validated cached outputs
+
+SKIP tfr1_c4_acid_site2_45: fully validated cached outputs
+SKIP tfr1_c4_acid_site1_56: fully validated cached outputs
+SKIP tfr1_c4_acid_site2_161: fully validated cached outputs
+SKIP tfr1_c4_acid_site1_118: fully validated cached outputs
+SKIP tfr1_c4_acid_site2_65: fully validated cached outputs
+SKIP tfr1_c4_acid_site1_177: fully validated cached outputs
+SKIP tfr1_c4_acid_site2_126: fully validated cached outputs
+[modal-client] 2026-10-24T14:16:08-0400 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/pinho-ricardo/main/ap-bRyOn8T0naTy0TFg2X5odJ

@@ -1,7 +1,0 @@
-n pairs 190
-len_gap vs |tm delta| pearson r = 0.9401
-max len gap: 35.0  max tm delta: 0.1694
-  gap 0-5: n=39 mean|delta|=0.0075 max=0.0251
-  gap 5-15: n=79 mean|delta|=0.0359 max=0.0722
-  gap 15-30: n=63 mean|delta|=0.0824 max=0.1694
-  gap 30-200: n=9 mean|delta|=0.1185 max=0.1421

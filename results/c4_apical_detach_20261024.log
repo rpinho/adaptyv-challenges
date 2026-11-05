@@ -1,0 +1,23 @@
+Note that running a local entrypoint in detached mode only keeps the last triggered Modal function alive after the parent process has been killed or disconnected.
+✓ Initialized. View run at 
+https://modal.com/apps/pinho-ricardo/main/ap-tNtBKluXq1k8gupDcvSSie
+✓ Created objects.
+├── 🔨 Created mount /Users/ricardo/dev/adaptyv-c4/modal_boltz2_apical.py
+├── 🔨 Created function run_all.
+└── 🔨 Created function predict_one.
+Validated 343 candidate inputs; target = contiguous P02786 189-383 (195 res)
+Spawned durable driver run_all; function call id = fc-01M5QDFH6FZXCRV0EPCY57VHP4
+Outputs: rfd4-runs:boltz2_c4_apical/  (per-design + consolidated_results.json)
+Predicting tfr1_c4_acid_site1_47 (82 res) vs apical-195
+Predicting tfr1_c4_acid_site2_27 (73 res) vs apical-195
+Predicting tfr1_c4_acid_site2_63 (90 res) vs apical-195
+Predicting tfr1_c4_acid_site1_119 (83 res) vs apical-195
+Predicting tfr1_c4_acid_site1_87 (72 res) vs apical-195
+Predicting tfr1_c4_acid_site2_135 (90 res) vs apical-195
+Predicting tfr1_c4_acid_site2_89 (82 res) vs apical-195
+Predicting tfr1_c4_acid_site2_12 (85 res) vs apical-195
+Predicting tfr1_c4_acid_site2_108 (64 res) vs apical-195
+Predicting tfr1_c4_acid_site1_178 (90 res) vs apical-195
+[modal-client] 2026-10-24T12:56:46-0400 Timed out waiting for final app logs.
+✓ App completed. View run at 
+https://modal.com/apps/pinho-ricardo/main/ap-tNtBKluXq1k8gupDcvSSie

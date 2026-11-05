@@ -1,0 +1,60 @@
+{
+ "allocated": 120,
+ "unique": 120,
+ "collisions": [],
+ "prior_r3_attempt_seeds": [
+  910000,
+  910001,
+  910002,
+  910003,
+  910004,
+  910005,
+  910006,
+  910100,
+  910101,
+  910200,
+  910201
+ ],
+ "prior_r3_reused_seeds": [
+  910000,
+  910001,
+  910002,
+  910003,
+  910004,
+  910005,
+  910006,
+  910100,
+  910101,
+  910200,
+  910201
+ ],
+ "configs": [
+  {
+   "path": "configs/rfd4/r3/c3_ecd111_r3_h4_52_64.yaml",
+   "sha256": "c52ea7b5d6b379e43679763ab5046ec1115b1b8860ce7c8aea8ef86991b12b59"
+  },
+  {
+   "path": "configs/rfd4/r3/c3_ecd111_r3_h4_65_80.yaml",
+   "sha256": "074fd44af0c9227320f737c21f37f5a32d390700d23aae31c0744bc4ad0422d1"
+  },
+  {
+   "path": "configs/rfd4/r3/c3_ecd111_r3_h4_81_100.yaml",
+   "sha256": "ed8ed46dc9192ac8da226b8fb5c68c0a74cebe687220461efe3a4539fee2bf5b"
+  },
+  {
+   "path": "configs/rfd4/r3/c3_ecd111_r3_h8_52_64.yaml",
+   "sha256": "adef4cca88826bcfb449db1cb0f2019d15dd74b0ef439d461c4b0087abffc57c"
+  },
+  {
+   "path": "configs/rfd4/r3/c3_ecd111_r3_h8_65_80.yaml",
+   "sha256": "918a8e89ddc0c37a9b0ac13741eeb9c05c626cd1ff559da042e566c091237fe6"
+  },
+  {
+   "path": "configs/rfd4/r3/c3_ecd111_r3_h8_81_100.yaml",
+   "sha256": "20a8f7e30544d0081d7be47299e31945ac8819b25c0699a901cfb957fa1c0d94"
+  }
+ ],
+ "target_file_sha256": "f87757d1e64a5c0dfd51b831be19528f01fa836e6e56029953cd09cc06a2fbdc",
+ "target_sequence_sha256": "5c2bae2dac5e467bf4e802473450a7ca3729990921bbe5c45cf6025531ef36b3",
+ "errors": []
+}

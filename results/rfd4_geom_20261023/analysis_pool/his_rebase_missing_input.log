@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/Users/ricardo/.worktrees/adaptyv-c4/claude-submission/scripts/rank_candidates.py", line 400, in <module>
+    main()
+  File "/Users/ricardo/.worktrees/adaptyv-c4/claude-submission/scripts/rank_candidates.py", line 216, in main
+    records = load_candidates(a.candidates)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ricardo/.worktrees/adaptyv-c4/claude-submission/scripts/rank_candidates.py", line 79, in load_candidates
+    with open(path) as fh:
+         ^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'results/rfd4_geom_20261023/scored/his.csv'

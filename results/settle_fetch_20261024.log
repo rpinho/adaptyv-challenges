@@ -1,0 +1,48 @@
+2026-10-24 17:52:54 C4 stopped -> fetch
+✓ Initialized. View run at 
+https://modal.com/apps/pinho-ricardo/main/ap-9l3ohCYTcdQ6t6CKY2Knxl
+✓ Created objects.
+├── ✓ Uploaded /Users/ricardo/dev/adaptyv-c4/modal_boltz2_apical.py
+├── ✓ Created Function predict_one.
+├── ✓ Created Function run_all.
+├── ✓ Created Function read_consolidated.
+├── ✓ Created Function predict_one_long.
+└── ✓ Created Function retry_one_driver.
+Downloaded consolidated results -> results/c4_apical_consolidated_results.json
+  n_designs=343 summary={'computed': 1, 'skipped': 341, 'errored': 1, 'iptm_gt_0.5': 177, 'errors': [{'name': 'tfr1_c4_acid_site1_41', 'error': 'timeout'}]}
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/pinho-ricardo/main/ap-9l3ohCYTcdQ6t6CKY2Knxl
+2026-10-24 18:38:10 C3 stopped -> fetch
+✓ Initialized. View run at 
+https://modal.com/apps/pinho-ricardo/main/ap-q7ptevEPryldSk8Dbrhi6y
+✓ Created objects.
+├── ✓ Uploaded /Users/ricardo/dev/adaptyv-c4/modal_af2m_c3_complex.py
+├── ✓ Uploaded 
+│   /Users/ricardo/dev/adaptyv-c4/results/c3_screen_input_20261024.csv
+├── ✓ Created Function predict.
+├── ✓ Created Function main.
+└── ✓ Created Function consolidate.
+consolidated 17 (17 scored) -> /runs/c3_ecd_complex_20261024/consolidated_scores.json
+Wrote 17 rows (17 scored) -> /Users/ricardo/dev/adaptyv-c4/results/c3_screen_af2m_scores_20261024.json
+  c3_bc_l57_fbcf76         v6             iptm=0.900 ptm=0.860 plddt=92.3
+  c3_glp1r_ecd_151         v6             iptm=0.900 ptm=0.870 plddt=93.0
+  c3_glp1r_ecd_172         v6             iptm=0.900 ptm=0.870 plddt=91.6
+  c3_v_l57_F38Y            v6             iptm=0.900 ptm=0.850 plddt=91.2
+  c3_v_l57_Q18K            v6             iptm=0.900 ptm=0.860 plddt=91.4
+  c3_v_l57_Q18K_F38Y       v6             iptm=0.900 ptm=0.860 plddt=92.0
+  c3_v_l100_E79Q_E93Q      v6             iptm=0.890 ptm=0.880 plddt=92.7
+  c3_bc_l100_c674f8        v6             iptm=0.880 ptm=0.870 plddt=92.4
+  c3_bc_l78_3d63fd         v6             iptm=0.870 ptm=0.850 plddt=92.1
+  c3_bc_l99_e26aff         v6             iptm=0.870 ptm=0.860 plddt=88.8
+  c3_bc_l70_7781fe         v6             iptm=0.860 ptm=0.860 plddt=91.5
+  c3_bc_l100_4bd789        v6             iptm=0.850 ptm=0.850 plddt=90.2
+  c3_bc_l52_6950ff         v6             iptm=0.850 ptm=0.840 plddt=89.9
+  c3_bc_l65_8f7b63         v6             iptm=0.850 ptm=0.850 plddt=90.5
+  c3_v_l65_E53Q            v6             iptm=0.850 ptm=0.850 plddt=90.5
+  c3_v_l65_E5Q             v6             iptm=0.850 ptm=0.850 plddt=90.4
+  c3_v_l65_E5Q_E53Q        v6             iptm=0.850 ptm=0.850 plddt=90.3
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/pinho-ricardo/main/ap-q7ptevEPryldSk8Dbrhi6y
+2026-10-24 18:38:18 ALL_SETTLED

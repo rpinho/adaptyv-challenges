@@ -1,0 +1,21 @@
+Both apps healthy: C4 retry `ap-x8qUMEomla0Dhcf7x8Zzb8` running (1 task), C3 screen `ap-kyeVNsRjGqksuudoNSczUN` untouched (11 tasks). Here's where things stand:
+
+## Summary
+
+**1. Single bounded retry — launched, root-cause fix.**
+`tfr1_c4_acid_site1_41` is the **longest binder in the pool (100 res)** → largest complex (295 res) → it hit the 1800 s subprocess wall twice. That's a wall-clock budget problem, not scoring/input/target. Fix = **one longer task**, not a whole-pool rerun:
+- Added `predict_one_long` / `retry_one_driver` / `retry_one` to `modal_boltz2_apical.py`. Identical target, binder, and Boltz-2 params to `predict_one`; **only** the time budget grows (subprocess 1800→6600 s, fn 3600→7200 s). `predict_one` left unmodified so the 342 valid artifacts keep their provenance.
+- Local pre-spend gate passed (343 PASS, contiguous P02786 189-383, epitope KNRLV).
+- **App `ap-x8qUMEomla0Dhcf7x8Zzb8`, driver `fc-01M5QM4HY72W1JDNVQPVZFZQ6E`** — detached, ephemeral, survived client exit. Launched via `modal run --detach modal_boltz2_apical.py::retry_one`. The driver replaces only `site1_41`'s consolidated entry; 342 others untouched. **This is the only authorized retry; if it fails again, missing status is retained and C4 compute stops.** Still **PENDING** — a background poll will notify me when it resolves.
+
+**2. Artifact-based comparison (on the 342 valid designs).**
+All now scored on the same corrected contiguous apical target, so comparable. Both historical portfolios score poorly there (v9 mean ipTM 0.418 / His pKa 5.80; old preview 0.482 / 6.00; none of the corrected top-20 appear in either) — expected, since they were selected against the discontinuous surrogate. 
+
+Evidence supports a different portfolio, so I wrote a **NEW** file `results/c4_apical_preview_20261024.csv` (ipTM≥0.60 gate → rank by acid-OFF His pKa → diversity filter → top 20): mean ipTM **0.704**, His pKa **6.38**. **Caveat held throughout: domain-only, monomeric 189-383 — not the native 121-760 homodimer; this is a model-metric reranking, not biological validation.** 
+
+v9 (`31d98a41…`) and the old preview (`00ec3d59…`) are **preserved byte-for-byte**. Nothing submitted, no one contacted. C3 AF2M screen untouched.
+
+Full writeup: `results/c4_apical_analysis_20261024.md`; handoff updated. The retry's final outcome and the new `modal_boltz2_apical.py` SHA get recorded in the analysis doc's trailing block once the detached driver resolves — I'll report back when the poll fires.
+/Users/ricardo/.local/share/agent-backend/agent-run.sh: line 45: 54543 Alarm clock: 14         "$@" 0<&0
+
+C4_FOLLOWUP_EXIT=142

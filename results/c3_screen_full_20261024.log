@@ -1,0 +1,367 @@
+✓ Initialized. View run at 
+https://modal.com/apps/pinho-ricardo/main/ap-kyeVNsRjGqksuudoNSczUN
+✓ Created objects.
+├── 🔨 Created mount /Users/ricardo/dev/adaptyv-c4/modal_af2m_c3_complex.py
+├── 🔨 Created mount 
+│   /Users/ricardo/dev/adaptyv-c4/results/c3_screen_input_20261024.csv
+├── 🔨 Created function predict.
+├── 🔨 Created function main.
+└── 🔨 Created function consolidate.
+total=44 done=1 pending=43
+/root/modal_af2m_c3_complex.py:201: DeprecationError: 2025-06-27: Function.map currently leaks an internal exception wrapping type (modal.exceptions.UserCodeException) when `return_exceptions=True` is set. In the future, this will change, and the underlying exception will be returned directly.
+To opt into the future behavior and silence this warning, add `wrap_returned_exceptions=False`:
+
+    f.map(..., return_exceptions=True, wrap_returned_exceptions=False)
+  for res in predict.map(pending, order_outputs=False, return_exceptions=True):
+[c3_bc_l70_7781fe] colabfold_batch /tmp/c3_bc_l70_7781fe/c3_bc_l70_7781fe.fasta /tmp/c3_bc_l70_7781fe/out --model-type alphafold2_multimer_v3 --num-recycle 3 --num-models 5 --rank multimer --msa-mode mmseqs2_uniref_env --data /weights
+[c3_bc_l65_8f7b63] colabfold_batch /tmp/c3_bc_l65_8f7b63/c3_bc_l65_8f7b63.fasta /tmp/c3_bc_l65_8f7b63/out --model-type alphafold2_multimer_v3 --num-recycle 3 --num-models 5 --rank multimer --msa-mode mmseqs2_uniref_env --data /weights
+[c3_bc_l100_c674f8] colabfold_batch /tmp/c3_bc_l100_c674f8/c3_bc_l100_c674f8.fasta /tmp/c3_bc_l100_c674f8/out --model-type alphafold2_multimer_v3 --num-recycle 3 --num-models 5 --rank multimer --msa-mode mmseqs2_uniref_env --data /weights
+[c3_bc_l99_e26aff] colabfold_batch /tmp/c3_bc_l99_e26aff/c3_bc_l99_e26aff.fasta /tmp/c3_bc_l99_e26aff/out --model-type alphafold2_multimer_v3 --num-recycle 3 --num-models 5 --rank multimer --msa-mode mmseqs2_uniref_env --data /weights
+[c3_bc_l52_6950ff] colabfold_batch /tmp/c3_bc_l52_6950ff/c3_bc_l52_6950ff.fasta /tmp/c3_bc_l52_6950ff/out --model-type alphafold2_multimer_v3 --num-recycle 3 --num-models 5 --rank multimer --msa-mode mmseqs2_uniref_env --data /weights
+[c3_bc_l100_4bd789] colabfold_batch /tmp/c3_bc_l100_4bd789/c3_bc_l100_4bd789.fasta /tmp/c3_bc_l100_4bd789/out --model-type alphafold2_multimer_v3 --num-recycle 3 --num-models 5 --rank multimer --msa-mode mmseqs2_uniref_env --data /weights
+[c3_bc_l78_3d63fd] colabfold_batch /tmp/c3_bc_l78_3d63fd/c3_bc_l78_3d63fd.fasta /tmp/c3_bc_l78_3d63fd/out --model-type alphafold2_multimer_v3 --num-recycle 3 --num-models 5 --rank multimer --msa-mode mmseqs2_uniref_env --data /weights
+[c3_v_l100_E79Q_E93Q] colabfold_batch /tmp/c3_v_l100_E79Q_E93Q/c3_v_l100_E79Q_E93Q.fasta /tmp/c3_v_l100_E79Q_E93Q/out --model-type alphafold2_multimer_v3 --num-recycle 3 --num-models 5 --rank multimer --msa-mode mmseqs2_uniref_env --data /weights
+[c3_v_l57_F38Y] colabfold_batch /tmp/c3_v_l57_F38Y/c3_v_l57_F38Y.fasta /tmp/c3_v_l57_F38Y/out --model-type alphafold2_multimer_v3 --num-recycle 3 --num-models 5 --rank multimer --msa-mode mmseqs2_uniref_env --data /weights
+[c3_v_l57_Q18K] colabfold_batch /tmp/c3_v_l57_Q18K/c3_v_l57_Q18K.fasta /tmp/c3_v_l57_Q18K/out --model-type alphafold2_multimer_v3 --num-recycle 3 --num-models 5 --rank multimer --msa-mode mmseqs2_uniref_env --data /weights
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 946, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 172, in run_input_sync
+    values = io_context.call_function_sync()
+task exception: UserCodeException(TimeoutExpired(['colabfold_batch', '/tmp/c3_bc_l70_7781fe/c3_bc_l70_7781fe.fasta', '/tmp/c3_bc_l70_7781fe/out', '--model-type', 'alphafold2_multimer_v3', '--num-recycle', '3', '--num-models', '5', '--rank', 'multimer', '--msa-mode', 'mmseqs2_uniref_env', '--data', '/weights'], 3000))
+  File "/pkg/modal/_runtime/container_io_manager.py", line 225, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+  File "/root/modal_af2m_c3_complex.py", line 120, in predict
+    r = subprocess.run(cmd, capture_output=True, text=True, timeout=3000)
+  File "/usr/local/lib/python3.10/subprocess.py", line 505, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+  File "/usr/local/lib/python3.10/subprocess.py", line 1154, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+  File "/usr/local/lib/python3.10/subprocess.py", line 2022, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/local/lib/python3.10/subprocess.py", line 1198, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['colabfold_batch', '/tmp/c3_bc_l70_7781fe/c3_bc_l70_7781fe.fasta', '/tmp/c3_bc_l70_7781fe/out', '--model-type', 'alphafold2_multimer_v3', '--num-recycle', '3', '--num-models', '5', '--rank', 'multimer', '--msa-mode', 'mmseqs2_uniref_env', '--data', '/weights']' timed out after 3000 seconds
+
+[c3_v_l57_Q18K_F38Y] colabfold_batch /tmp/c3_v_l57_Q18K_F38Y/c3_v_l57_Q18K_F38Y.fasta /tmp/c3_v_l57_Q18K_F38Y/out --model-type alphafold2_multimer_v3 --num-recycle 3 --num-models 5 --rank multimer --msa-mode mmseqs2_uniref_env --data /weights
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 946, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 172, in run_input_sync
+    values = io_context.call_function_sync()
+  File "/pkg/modal/_runtime/container_io_manager.py", line 225, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+  File "/root/modal_af2m_c3_complex.py", line 120, in predict
+    r = subprocess.run(cmd, capture_output=True, text=True, timeout=3000)
+  File "/usr/local/lib/python3.10/subprocess.py", line 505, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+  File "/usr/local/lib/python3.10/subprocess.py", line 1154, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+  File "/usr/local/lib/python3.10/subprocess.py", line 2022, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/local/lib/python3.10/subprocess.py", line 1198, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['colabfold_batch', '/tmp/c3_bc_l65_8f7b63/c3_bc_l65_8f7b63.fasta', '/tmp/c3_bc_l65_8f7b63/out', '--model-type', 'alphafold2_multimer_v3', '--num-recycle', '3', '--num-models', '5', '--rank', 'multimer', '--msa-mode', 'mmseqs2_uniref_env', '--data', '/weights']' timed out after 3000 seconds
+
+task exception:[c3_v_l65_E5Q_E53Q] colabfold_batch /tmp/c3_v_l65_E5Q_E53Q/c3_v_l65_E5Q_E53Q.fasta /tmp/c3_v_l65_E5Q_E53Q/out --model-type alphafold2_multimer_v3 --num-recycle 3 --num-models 5 --rank multimer --msa-mode mmseqs2_uniref_env --data /weights
+ UserCodeException(TimeoutExpired(['colabfold_batch', '/tmp/c3_bc_l65_8f7b63/c3_bc_l65_8f7b63.fasta', '/tmp/c3_bc_l65_8f7b63/out', '--model-type', 'alphafold2_multimer_v3', '--num-recycle', '3', '--num-models', '5', '--rank', 'multimer', '--msa-mode', 'mmseqs2_uniref_env', '--data', '/weights'], 3000))
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 946, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 172, in run_input_sync
+    values = io_context.call_function_sync()
+  File "/pkg/modal/_runtime/container_io_manager.py", line 225, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+  File "/root/modal_af2m_c3_complex.py", line 120, in predict
+    r = subprocess.run(cmd, capture_output=True, text=True, timeout=3000)
+  File "/usr/local/lib/python3.10/subprocess.py", line 505, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+  File "/usr/local/lib/python3.10/subprocess.py", line 1154, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+  File "/usr/local/lib/python3.10/subprocess.py", line 2022, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/local/lib/python3.10/subprocess.py", line 1198, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['colabfold_batch', '/tmp/c3_bc_l100_c674f8/c3_bc_l100_c674f8.fasta', '/tmp/c3_bc_l100_c674f8/out', '--model-type', 'alphafold2_multimer_v3', '--num-recycle', '3', '--num-models', '5', '--rank', 'multimer', '--msa-mode', 'mmseqs2_uniref_env', '--data', '/weights']' timed out after 3000 seconds
+
+task exception:[c3_v_l65_E53Q] colabfold_batch /tmp/c3_v_l65_E53Q/c3_v_l65_E53Q.fasta /tmp/c3_v_l65_E53Q/out --model-type alphafold2_multimer_v3 --num-recycle 3 --num-models 5 --rank multimer --msa-mode mmseqs2_uniref_env --data /weights
+ UserCodeException(TimeoutExpired(['colabfold_batch', '/tmp/c3_bc_l100_c674f8/c3_bc_l100_c674f8.fasta', '/tmp/c3_bc_l100_c674f8/out', '--model-type', 'alphafold2_multimer_v3', '--num-recycle', '3', '--num-models', '5', '--rank', 'multimer', '--msa-mode', 'mmseqs2_uniref_env', '--data', '/weights'], 3000))
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 946, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 172, in run_input_sync
+    values = io_context.call_function_sync()
+  File "/pkg/modal/_runtime/container_io_manager.py", line 225, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+  File "/root/modal_af2m_c3_complex.py", line 120, in predict
+    r = subprocess.run(cmd, capture_output=True, text=True, timeout=3000)
+  File "/usr/local/lib/python3.10/subprocess.py", line 505, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+  File "/usr/local/lib/python3.10/subprocess.py", line 1154, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+  File "/usr/local/lib/python3.10/subprocess.py", line 2022, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/local/lib/python3.10/subprocess.py", line 1198, in _check_timeout
+    raise TimeoutExpired(
+task exception: UserCodeException(TimeoutExpired(['colabfold_batch', '/tmp/c3_bc_l99_e26aff/c3_bc_l99_e26aff.fasta', '/tmp/c3_bc_l99_e26aff/out', '--model-type', 'alphafold2_multimer_v3', '--num-recycle', '3', '--num-models', '5', '--rank', 'multimer', '--msa-mode', 'mmseqs2_uniref_env', '--data', '/weights'], 3000))
+subprocess.TimeoutExpired: Command '['colabfold_batch', '/tmp/c3_bc_l99_e26aff/c3_bc_l99_e26aff.fasta', '/tmp/c3_bc_l99_e26aff/out', '--model-type', 'alphafold2_multimer_v3', '--num-recycle', '3', '--num-models', '5', '--rank', 'multimer', '--msa-mode', 'mmseqs2_uniref_env', '--data', '/weights']' timed out after 3000 seconds
+
+[c3_v_l65_E5Q] colabfold_batch /tmp/c3_v_l65_E5Q/c3_v_l65_E5Q.fasta /tmp/c3_v_l65_E5Q/out --model-type alphafold2_multimer_v3 --num-recycle 3 --num-models 5 --rank multimer --msa-mode mmseqs2_uniref_env --data /weights
+task exception: UserCodeException(TimeoutExpired(['colabfold_batch', '/tmp/c3_bc_l52_6950ff/c3_bc_l52_6950ff.fasta', '/tmp/c3_bc_l52_6950ff/out', '--model-type', 'alphafold2_multimer_v3', '--num-recycle', '3', '--num-models', '5', '--rank', 'multimer', '--msa-mode', 'mmseqs2_uniref_env', '--data', '/weights'], 3000))
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 946, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 172, in run_input_sync
+    values = io_context.call_function_sync()
+  File "/pkg/modal/_runtime/container_io_manager.py", line 225, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+  File "/root/modal_af2m_c3_complex.py", line 120, in predict
+    r = subprocess.run(cmd, capture_output=True, text=True, timeout=3000)
+  File "/usr/local/lib/python3.10/subprocess.py", line 505, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+  File "/usr/local/lib/python3.10/subprocess.py", line 1154, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+  File "/usr/local/lib/python3.10/subprocess.py", line 2022, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/local/lib/python3.10/subprocess.py", line 1198, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['colabfold_batch', '/tmp/c3_bc_l52_6950ff/c3_bc_l52_6950ff.fasta', '/tmp/c3_bc_l52_6950ff/out', '--model-type', 'alphafold2_multimer_v3', '--num-recycle', '3', '--num-models', '5', '--rank', 'multimer', '--msa-mode', 'mmseqs2_uniref_env', '--data', '/weights']' timed out after 3000 seconds
+
+[c3_glp1r_ecd_172] colabfold_batch /tmp/c3_glp1r_ecd_172/c3_glp1r_ecd_172.fasta /tmp/c3_glp1r_ecd_172/out --model-type alphafold2_multimer_v3 --num-recycle 3 --num-models 5 --rank multimer --msa-mode mmseqs2_uniref_env --data /weights
+Traceback (most recent call last):
+task exception: UserCodeException(TimeoutExpired(['colabfold_batch', '/tmp/c3_bc_l100_4bd789/c3_bc_l100_4bd789.fasta', '/tmp/c3_bc_l100_4bd789/out', '--model-type', 'alphafold2_multimer_v3', '--num-recycle', '3', '--num-models', '5', '--rank', 'multimer', '--msa-mode', 'mmseqs2_uniref_env', '--data', '/weights'], 3000))
+  File "/pkg/modal/_runtime/container_io_manager.py", line 946, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 172, in run_input_sync
+    values = io_context.call_function_sync()
+  File "/pkg/modal/_runtime/container_io_manager.py", line 225, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+  File "/root/modal_af2m_c3_complex.py", line 120, in predict
+    r = subprocess.run(cmd, capture_output=True, text=True, timeout=3000)
+  File "/usr/local/lib/python3.10/subprocess.py", line 505, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+  File "/usr/local/lib/python3.10/subprocess.py", line 1154, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+  File "/usr/local/lib/python3.10/subprocess.py", line 2022, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/local/lib/python3.10/subprocess.py", line 1198, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['colabfold_batch', '/tmp/c3_bc_l100_4bd789/c3_bc_l100_4bd789.fasta', '/tmp/c3_bc_l100_4bd789/out', '--model-type', 'alphafold2_multimer_v3', '--num-recycle', '3', '--num-models', '5', '--rank', 'multimer', '--msa-mode', 'mmseqs2_uniref_env', '--data', '/weights']' timed out after 3000 seconds
+
+[c3_glp1r_ecd_171] colabfold_batch /tmp/c3_glp1r_ecd_171/c3_glp1r_ecd_171.fasta /tmp/c3_glp1r_ecd_171/out --model-type alphafold2_multimer_v3 --num-recycle 3 --num-models 5 --rank multimer --msa-mode mmseqs2_uniref_env --data /weights
+Traceback (most recent call last):
+task exception: UserCodeException(TimeoutExpired(['colabfold_batch', '/tmp/c3_bc_l78_3d63fd/c3_bc_l78_3d63fd.fasta', '/tmp/c3_bc_l78_3d63fd/out', '--model-type', 'alphafold2_multimer_v3', '--num-recycle', '3', '--num-models', '5', '--rank', 'multimer', '--msa-mode', 'mmseqs2_uniref_env', '--data', '/weights'], 3000))
+  File "/pkg/modal/_runtime/container_io_manager.py", line 946, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 172, in run_input_sync
+    values = io_context.call_function_sync()
+  File "/pkg/modal/_runtime/container_io_manager.py", line 225, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+  File "/root/modal_af2m_c3_complex.py", line 120, in predict
+    r = subprocess.run(cmd, capture_output=True, text=True, timeout=3000)
+  File "/usr/local/lib/python3.10/subprocess.py", line 505, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+  File "/usr/local/lib/python3.10/subprocess.py", line 1154, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+  File "/usr/local/lib/python3.10/subprocess.py", line 2022, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/local/lib/python3.10/subprocess.py", line 1198, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['colabfold_batch', '/tmp/c3_bc_l78_3d63fd/c3_bc_l78_3d63fd.fasta', '/tmp/c3_bc_l78_3d63fd/out', '--model-type', 'alphafold2_multimer_v3', '--num-recycle', '3', '--num-models', '5', '--rank', 'multimer', '--msa-mode', 'mmseqs2_uniref_env', '--data', '/weights']' timed out after 3000 seconds
+
+[c3_glp1r_ecd_29] colabfold_batch /tmp/c3_glp1r_ecd_29/c3_glp1r_ecd_29.fasta /tmp/c3_glp1r_ecd_29/out --model-type alphafold2_multimer_v3 --num-recycle 3 --num-models 5 --rank multimer --msa-mode mmseqs2_uniref_env --data /weights
+Traceback (most recent call last):
+  File "/pkg/modal/_runtime/container_io_manager.py", line 946, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 172, in run_input_sync
+    values = io_context.call_function_sync()
+  File "/pkg/modal/_runtime/container_io_manager.py", line 225, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+  File "/root/modal_af2m_c3_complex.py", line 120, in predict
+    r = subprocess.run(cmd, capture_output=True, text=True, timeout=3000)
+  File "/usr/local/lib/python3.10/subprocess.py", line 505, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+  File "/usr/local/lib/python3.10/subprocess.py", line 1154, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+  File "/usr/local/lib/python3.10/subprocess.py", line 2022, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+task exception: UserCodeException(TimeoutExpired(['colabfold_batch', '/tmp/c3_v_l100_E79Q_E93Q/c3_v_l100_E79Q_E93Q.fasta', '/tmp/c3_v_l100_E79Q_E93Q/out', '--model-type', 'alphafold2_multimer_v3', '--num-recycle', '3', '--num-models', '5', '--rank', 'multimer', '--msa-mode', 'mmseqs2_uniref_env', '--data', '/weights'], 3000))
+  File "/usr/local/lib/python3.10/subprocess.py", line 1198, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['colabfold_batch', '/tmp/c3_v_l100_E79Q_E93Q/c3_v_l100_E79Q_E93Q.fasta', '/tmp/c3_v_l100_E79Q_E93Q/out', '--model-type', 'alphafold2_multimer_v3', '--num-recycle', '3', '--num-models', '5', '--rank', 'multimer', '--msa-mode', 'mmseqs2_uniref_env', '--data', '/weights']' timed out after 3000 seconds
+
+[c3_glp1r_ecd_12] colabfold_batch /tmp/c3_glp1r_ecd_12/c3_glp1r_ecd_12.fasta /tmp/c3_glp1r_ecd_12/out --model-type alphafold2_multimer_v3 --num-recycle 3 --num-models 5 --rank multimer --msa-mode mmseqs2_uniref_env --data /weights
+Traceback (most recent call last):
+task exception: UserCodeException(TimeoutExpired(['colabfold_batch', '/tmp/c3_v_l57_F38Y/c3_v_l57_F38Y.fasta', '/tmp/c3_v_l57_F38Y/out', '--model-type', 'alphafold2_multimer_v3', '--num-recycle', '3', '--num-models', '5', '--rank', 'multimer', '--msa-mode', 'mmseqs2_uniref_env', '--data', '/weights'], 3000))
+  File "/pkg/modal/_runtime/container_io_manager.py", line 946, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 172, in run_input_sync
+    values = io_context.call_function_sync()
+  File "/pkg/modal/_runtime/container_io_manager.py", line 225, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+  File "/root/modal_af2m_c3_complex.py", line 120, in predict
+    r = subprocess.run(cmd, capture_output=True, text=True, timeout=3000)
+  File "/usr/local/lib/python3.10/subprocess.py", line 505, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+  File "/usr/local/lib/python3.10/subprocess.py", line 1154, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+  File "/usr/local/lib/python3.10/subprocess.py", line 2022, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/local/lib/python3.10/subprocess.py", line 1198, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['colabfold_batch', '/tmp/c3_v_l57_F38Y/c3_v_l57_F38Y.fasta', '/tmp/c3_v_l57_F38Y/out', '--model-type', 'alphafold2_multimer_v3', '--num-recycle', '3', '--num-models', '5', '--rank', 'multimer', '--msa-mode', 'mmseqs2_uniref_env', '--data', '/weights']' timed out after 3000 seconds
+
+[c3_glp1r_ecd_151] colabfold_batch /tmp/c3_glp1r_ecd_151/c3_glp1r_ecd_151.fasta /tmp/c3_glp1r_ecd_151/out --model-type alphafold2_multimer_v3 --num-recycle 3 --num-models 5 --rank multimer --msa-mode mmseqs2_uniref_env --data /weights
+Traceback (most recent call last):
+task exception: UserCodeException(TimeoutExpired(['colabfold_batch', '/tmp/c3_v_l57_Q18K/c3_v_l57_Q18K.fasta', '/tmp/c3_v_l57_Q18K/out', '--model-type', 'alphafold2_multimer_v3', '--num-recycle', '3', '--num-models', '5', '--rank', 'multimer', '--msa-mode', 'mmseqs2_uniref_env', '--data', '/weights'], 3000))
+  File "/pkg/modal/_runtime/container_io_manager.py", line 946, in handle_input_exception
+    yield
+  File "/pkg/modal/_container_entrypoint.py", line 172, in run_input_sync
+    values = io_context.call_function_sync()
+  File "/pkg/modal/_runtime/container_io_manager.py", line 225, in call_function_sync
+    expected_value_or_values = self.finalized_function.callable(*args, **kwargs)
+  File "/root/modal_af2m_c3_complex.py", line 120, in predict
+    r = subprocess.run(cmd, capture_output=True, text=True, timeout=3000)
+  File "/usr/local/lib/python3.10/subprocess.py", line 505, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+  File "/usr/local/lib/python3.10/subprocess.py", line 1154, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+  File "/usr/local/lib/python3.10/subprocess.py", line 2022, in _communicate
+    self._check_timeout(endtime, orig_timeout, stdout, stderr)
+  File "/usr/local/lib/python3.10/subprocess.py", line 1198, in _check_timeout
+    raise TimeoutExpired(
+subprocess.TimeoutExpired: Command '['colabfold_batch', '/tmp/c3_v_l57_Q18K/c3_v_l57_Q18K.fasta', '/tmp/c3_v_l57_Q18K/out', '--model-type', 'alphafold2_multimer_v3', '--num-recycle', '3', '--num-models', '5', '--rank', 'multimer', '--msa-mode', 'mmseqs2_uniref_env', '--data', '/weights']' timed out after 3000 seconds
+
+[c3_glp1r_ecd_70] colabfold_batch /tmp/c3_glp1r_ecd_70/c3_glp1r_ecd_70.fasta /tmp/c3_glp1r_ecd_70/out --model-type alphafold2_multimer_v3 --num-recycle 3 --num-models 5 --rank multimer --msa-mode mmseqs2_uniref_env --data /weights
+Stopping app - user stopped from CLI.
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+task exception: UserCodeException(RemoteError(''))
+consolidated 1 (1 scored) -> /runs/c3_ecd_complex_20261024/consolidated_scores.json
+Runner terminated.
+Runner terminated.
+Runner terminated.
+Runner terminated.
+Runner terminated.
+Runner terminated.
+Runner terminated.
+Runner terminated.
+Runner terminated.
+Runner terminated.
+╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+│ /Users/ricardo/Library/Python/3.9/bin/modal:8 in <module>                    │
+│                                                                              │
+│   7 │   sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])     │
+│ ❱ 8 │   sys.exit(main())                                                     │
+│   9                                                                          │
+│                                                                              │
+│ /Users/ricardo/Library/Python/3.9/lib/python/site-packages/modal/__main__.py │
+│ :18 in main                                                                  │
+│                                                                              │
+│   17 │   try:                                                                │
+│ ❱ 18 │   │   entrypoint_cli()                                                │
+│   19                                                                         │
+│                                                                              │
+│ /Users/ricardo/Library/Python/3.9/lib/python/site-packages/click/core.py:116 │
+│ 1 in __call__                                                                │
+│                                                                              │
+│ /Users/ricardo/Library/Python/3.9/lib/python/site-packages/typer/core.py:813 │
+│ in main                                                                      │
+│                                                                              │
+│ /Users/ricardo/Library/Python/3.9/lib/python/site-packages/typer/core.py:189 │
+│ in _main                                                                     │
+│                                                                              │
+│ /Users/ricardo/Library/Python/3.9/lib/python/site-packages/click/core.py:169 │
+│ 7 in invoke                                                                  │
+│                                                                              │
+│ /Users/ricardo/Library/Python/3.9/lib/python/site-packages/click/core.py:169 │
+│ 7 in invoke                                                                  │
+│                                                                              │
+│ /Users/ricardo/Library/Python/3.9/lib/python/site-packages/click/core.py:144 │
+│ 3 in invoke                                                                  │
+│                                                                              │
+│ /Users/ricardo/Library/Python/3.9/lib/python/site-packages/click/core.py:788 │
+│ in invoke                                                                    │
+│                                                                              │
+│ /Users/ricardo/Library/Python/3.9/lib/python/site-packages/click/decorators. │
+│ py:33 in new_func                                                            │
+│                                                                              │
+│ /Users/ricardo/Library/Python/3.9/lib/python/site-packages/modal/cli/run.py: │
+│ 195 in f                                                                     │
+│                                                                              │
+│   194 │   │   │   ):                                                         │
+│ ❱ 195 │   │   │   │   res = inner(args, kwargs)                              │
+│   196                                                                        │
+│                                                                              │
+│ /Users/ricardo/Library/Python/3.9/lib/python/site-packages/modal/cli/run.py: │
+│ 213 in _inner                                                                │
+│                                                                              │
+│   212 │   │   if ctx.obj["detach"]:                                          │
+│ ❱ 213 │   │   │   return function.spawn(*args, **click_kwargs).get()         │
+│   214 │   │   else:                                                          │
+│                                                                              │
+│ /Users/ricardo/Library/Python/3.9/lib/python/site-packages/synchronicity/syn │
+│ chronizer.py:669 in proxy_method                                             │
+│                                                                              │
+│ /Users/ricardo/Library/Python/3.9/lib/python/site-packages/synchronicity/com │
+│ bined_types.py:33 in __call__                                                │
+│                                                                              │
+│ /Users/ricardo/Library/Python/3.9/lib/python/site-packages/modal/_object.py: │
+│ 339 in wrapped                                                               │
+│                                                                              │
+│   338 │   │   await self.hydrate()                                           │
+│ ❱ 339 │   │   return await method(self, *args, **kwargs)                     │
+│   340                                                                        │
+│                                                                              │
+│ /Users/ricardo/Library/Python/3.9/lib/python/site-packages/modal/_functions. │
+│ py:1976 in get                                                               │
+│                                                                              │
+│   1975 │   │   """                                                           │
+│ ❱ 1976 │   │   return await self._invocation().poll_function(timeout=timeout │
+│   1977                                                                       │
+│                                                                              │
+│ /Users/ricardo/Library/Python/3.9/lib/python/site-packages/modal/_functions. │
+│ py:329 in poll_function                                                      │
+│                                                                              │
+│    328 │   │                                                                 │
+│ ❱  329 │   │   return await _process_result(                                 │
+│    330 │   │   │   response.outputs[0].result, response.outputs[0].data_form │
+│                                                                              │
+│ /Users/ricardo/Library/Python/3.9/lib/python/site-packages/modal/_utils/func │
+│ tion_utils.py:532 in _process_result                                         │
+│                                                                              │
+│   531 │   │                                                                  │
+│ ❱ 532 │   │   raise RemoteError(result.exception)                            │
+│   533                                                                        │
+╰──────────────────────────────────────────────────────────────────────────────╯
+RemoteError

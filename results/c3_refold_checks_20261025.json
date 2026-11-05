@@ -1,0 +1,170 @@
+{
+  "c3_glp1r_ecd_103": {
+    "sequence_sha256": "9fb4b802d3dfe28222c115293a97030877ded2b2b4fe5ed264ac7542b8f7d8a0",
+    "refold_mean_plddt": 87.84,
+    "refold_frac_residues_plddt_ge70": 0.9624,
+    "ca_rmsd_vs_af2m_binder": 4.875,
+    "pass": false
+  },
+  "c3_glp1r_ecd_127": {
+    "sequence_sha256": "636a83b4c159a75cb80ce37569745ccb9c52752a48508c883de8b844f8812e4a",
+    "refold_mean_plddt": 90.01,
+    "refold_frac_residues_plddt_ge70": 0.9499,
+    "ca_rmsd_vs_af2m_binder": 0.228,
+    "pass": true
+  },
+  "c3_glp1r_ecd_128": {
+    "sequence_sha256": "9b53c12ac2b833b09f73bedc0b050981e30e5fff531d999d249f54758f8af902",
+    "refold_mean_plddt": 80.71,
+    "refold_frac_residues_plddt_ge70": 0.821,
+    "ca_rmsd_vs_af2m_binder": 1.406,
+    "pass": false
+  },
+  "c3_glp1r_ecd_132": {
+    "sequence_sha256": "332a660f2dba40dc45db96bef18f999191f5bcc779837bd191097eabb0904a56",
+    "refold_mean_plddt": 89.95,
+    "refold_frac_residues_plddt_ge70": 0.9596,
+    "ca_rmsd_vs_af2m_binder": 0.929,
+    "pass": true
+  },
+  "c3_glp1r_ecd_14": {
+    "sequence_sha256": "1f8fbf579164694b2e8579d1a9ff2c05e68ed84dd4d0eff8ce155e27270e1a50",
+    "refold_mean_plddt": 90.83,
+    "refold_frac_residues_plddt_ge70": 0.9858,
+    "ca_rmsd_vs_af2m_binder": 0.21,
+    "pass": true
+  },
+  "c3_glp1r_ecd_153": {
+    "sequence_sha256": "27c449bff4e6cb6f18844e4f257d2ccc16b9c31741dd7a04df6fb52a8831e9aa",
+    "refold_mean_plddt": 86.89,
+    "refold_frac_residues_plddt_ge70": 0.9423,
+    "ca_rmsd_vs_af2m_binder": 0.442,
+    "pass": true
+  },
+  "c3_glp1r_ecd_154": {
+    "sequence_sha256": "7b4e2566b5fc91ac7bb4e869db923121e45c11dd0ef8091fd8946cbadf463a85",
+    "refold_mean_plddt": 88.18,
+    "refold_frac_residues_plddt_ge70": 0.9729,
+    "ca_rmsd_vs_af2m_binder": 0.49,
+    "pass": true
+  },
+  "c3_glp1r_ecd_176": {
+    "sequence_sha256": "4e923be069f379cd2c0e4d20a7619ef3f68e9dbbb036bf482f19bf6e52966657",
+    "refold_mean_plddt": 86.01,
+    "refold_frac_residues_plddt_ge70": 0.9004,
+    "ca_rmsd_vs_af2m_binder": 0.626,
+    "pass": true
+  },
+  "c3_glp1r_ecd_182": {
+    "sequence_sha256": "72f5e7f0b9d8117c94cd85a7f116ea697ffd48c269af66cdfc545729314d1d68",
+    "refold_mean_plddt": 84.55,
+    "refold_frac_residues_plddt_ge70": 0.914,
+    "ca_rmsd_vs_af2m_binder": 1.244,
+    "pass": true
+  },
+  "c3_glp1r_ecd_188": {
+    "sequence_sha256": "2b53ccd5ca0cd34d65c5a12447d7fe313333caf57fdb8fa70f65496be03096c5",
+    "refold_mean_plddt": 90.34,
+    "refold_frac_residues_plddt_ge70": 0.9694,
+    "ca_rmsd_vs_af2m_binder": 0.229,
+    "pass": true
+  },
+  "c3_glp1r_ecd_192": {
+    "sequence_sha256": "a79cf3c6673e5c47adc0c223c5fe7a6be34601dddca48233bc19ace68a412187",
+    "refold_mean_plddt": 87.25,
+    "refold_frac_residues_plddt_ge70": 0.9328,
+    "ca_rmsd_vs_af2m_binder": 2.752,
+    "pass": true
+  },
+  "c3_glp1r_ecd_193": {
+    "sequence_sha256": "f7cb0166854a754b566dae49418da038a4df423bdb1d29343b38f499b5efd85a",
+    "refold_mean_plddt": 83.33,
+    "refold_frac_residues_plddt_ge70": 0.8833,
+    "ca_rmsd_vs_af2m_binder": 2.974,
+    "pass": false
+  },
+  "c3_glp1r_ecd_198": {
+    "sequence_sha256": "d01de856617de57521273f9738f0c05e95a836b1aa1c5fc82652e3c56c15f640",
+    "refold_mean_plddt": 85.46,
+    "refold_frac_residues_plddt_ge70": 0.8694,
+    "ca_rmsd_vs_af2m_binder": 13.535,
+    "pass": false
+  },
+  "c3_glp1r_ecd_22": {
+    "sequence_sha256": "d5c4a49abf47ff07dbdf4e9dc7709b1cbd44bf8380d47cd18a14f6d8a120c70b",
+    "refold_mean_plddt": 84.08,
+    "refold_frac_residues_plddt_ge70": 0.8569,
+    "ca_rmsd_vs_af2m_binder": 2.275,
+    "pass": false
+  },
+  "c3_glp1r_ecd_26": {
+    "sequence_sha256": "75bb589252aaf1cc207180d7dcb208cabfcd69051fdc532794db3aabe4ad7a3c",
+    "refold_mean_plddt": 86.71,
+    "refold_frac_residues_plddt_ge70": 0.9583,
+    "ca_rmsd_vs_af2m_binder": 0.632,
+    "pass": true
+  },
+  "c3_glp1r_ecd_33": {
+    "sequence_sha256": "c4073472bd7b2c5023f4884e5b7e017d882cb14d5a1a85940c4b3d131d2fb538",
+    "refold_mean_plddt": 88.74,
+    "refold_frac_residues_plddt_ge70": 0.9339,
+    "ca_rmsd_vs_af2m_binder": 0.787,
+    "pass": true
+  },
+  "c3_glp1r_ecd_4": {
+    "sequence_sha256": "d926058c9c981daa31f4c8f339ef9ef6145832b9c2e95625c5edf86254f1795b",
+    "refold_mean_plddt": 87.9,
+    "refold_frac_residues_plddt_ge70": 0.927,
+    "ca_rmsd_vs_af2m_binder": 1.619,
+    "pass": true
+  },
+  "c3_glp1r_ecd_40": {
+    "sequence_sha256": "142ae9488942ccbe9216d049c7b66b621c001d84025d54065b4d6b9c07cc4977",
+    "refold_mean_plddt": 83.91,
+    "refold_frac_residues_plddt_ge70": 0.8739,
+    "ca_rmsd_vs_af2m_binder": 0.667,
+    "pass": false
+  },
+  "c3_glp1r_ecd_46": {
+    "sequence_sha256": "ef8a18ff7c9b932c6d6f9792e04ff10b3c8f311ea68716e3b1f9033ed3fb8858",
+    "refold_mean_plddt": 92.23,
+    "refold_frac_residues_plddt_ge70": 0.98,
+    "ca_rmsd_vs_af2m_binder": 0.166,
+    "pass": true
+  },
+  "c3_glp1r_ecd_5": {
+    "sequence_sha256": "c5cdeff12c58beb7eba2a177aff67d22eb7377688fef93779da2ddd48990ec46",
+    "refold_mean_plddt": 84.78,
+    "refold_frac_residues_plddt_ge70": 0.9435,
+    "ca_rmsd_vs_af2m_binder": 0.337,
+    "pass": true
+  },
+  "c3_glp1r_ecd_51": {
+    "sequence_sha256": "af091932670728ab181f496b72d7f8a3d7368c10402ffc7e0992f94b4f254ab3",
+    "refold_mean_plddt": 71.67,
+    "refold_frac_residues_plddt_ge70": 0.5812,
+    "ca_rmsd_vs_af2m_binder": 6.53,
+    "pass": false
+  },
+  "c3_glp1r_ecd_7": {
+    "sequence_sha256": "7b7f2541f0a5a42717e4e88ea28a029454d09ddff84604b1b1f20fe93604df71",
+    "refold_mean_plddt": 71.72,
+    "refold_frac_residues_plddt_ge70": 0.6284,
+    "ca_rmsd_vs_af2m_binder": 4.501,
+    "pass": false
+  },
+  "c3_glp1r_ecd_70": {
+    "sequence_sha256": "f03efe05138100a1cd47bc2b145a955d7f331eb875d97bf15aa8c1ba36efa5de",
+    "refold_mean_plddt": 83.26,
+    "refold_frac_residues_plddt_ge70": 0.8705,
+    "ca_rmsd_vs_af2m_binder": 1.062,
+    "pass": false
+  },
+  "c3_glp1r_ecd_92": {
+    "sequence_sha256": "0da1ae3547c98b913d061b6ad95abfa31a799a8ef19a4b2768cf88eaaeae3ae7",
+    "refold_mean_plddt": 59.97,
+    "refold_frac_residues_plddt_ge70": 0.1642,
+    "ca_rmsd_vs_af2m_binder": 10.05,
+    "pass": false
+  }
+}

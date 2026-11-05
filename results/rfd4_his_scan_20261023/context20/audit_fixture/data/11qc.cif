@@ -1,0 +1,1 @@
+/Users/ricardo/dev/adaptyv-c4/data/11qc.cif

@@ -1,0 +1,33 @@
+Environment variable CCD_MIRROR_PATH not set. Will not be able to use function requiring this variable. To set it you may:
+  (1) add the line 'export VAR_NAME=path/to/variable' to your .bashrc or .zshrc file
+  (2) set it in your current shell with 'export VAR_NAME=path/to/variable'
+  (3) write it to a .env file in the root of the atomworks.io repository
+Environment variable PDB_MIRROR_PATH not set. Will not be able to use function requiring this variable. To set it you may:
+  (1) add the line 'export VAR_NAME=path/to/variable' to your .bashrc or .zshrc file
+  (2) set it in your current shell with 'export VAR_NAME=path/to/variable'
+  (3) write it to a .env file in the root of the atomworks.io repository
+/Users/ricardo/.cache/adaptyv-c4/his_scan_cpu/venv/lib/python3.12/site-packages/astor/op_util.py:92: DeprecationWarning: ast.Num is deprecated and will be removed in Python 3.14; use ast.Constant instead
+  precedence_data = dict((getattr(ast, x, None), z) for x, y, z in op_data)
+Traceback (most recent call last):
+  File "/Users/ricardo/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/metadata/__init__.py", line 397, in from_name
+    return next(cls.discover(name=name))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+StopIteration
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ricardo/dev/adaptyv-c4/results/generation_pivot/run_his_scan_cpu.py", line 188, in <module>
+    worker(args.job_index)
+  File "/Users/ricardo/dev/adaptyv-c4/results/generation_pivot/run_his_scan_cpu.py", line 124, in worker
+    versions={x:metadata.version(x) for x in ('torch','tmol','atomworks','rfproteina')},
+                ^^^^^^^^^^^^^^^^^^^
+  File "/Users/ricardo/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/metadata/__init__.py", line 889, in version
+    return distribution(distribution_name).version
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ricardo/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/metadata/__init__.py", line 862, in distribution
+    return Distribution.from_name(distribution_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/ricardo/.local/share/uv/python/cpython-3.12.13-macos-aarch64-none/lib/python3.12/importlib/metadata/__init__.py", line 399, in from_name
+    raise PackageNotFoundError(name)
+importlib.metadata.PackageNotFoundError: No package metadata was found for rfproteina

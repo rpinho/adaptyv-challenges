@@ -1,0 +1,30 @@
+loaded 400 candidate rows from 2 file(s)
+RFD4 ordinal geometry triage: hotspot obedience descending, clashes/bad bonds ascending.
+Missing geometry stays unknown; no confidence, affinity, pH or official-acceptance score inferred.
+ranked 400 rows into 171 sequence families at >=60% local identity
+wrote results/rfd4_geom_20261023/ranking/shortlist.csv  (20 rows)
+wrote results/rfd4_geom_20261023/ranking/shortlist.provenance.json
+
+rank  name                   len  family  hotspot  clash_fraction  bad_bond_fraction
+   1  tfr1_his200m_20261023__tfr1_apical_his_124    67       0  1.0  0.0  0.0
+   2  tfr1_his200m_20261023__tfr1_apical_his_148    78       1  1.0  0.0  0.0
+   3  tfr1_his200m_20261023__tfr1_apical_his_179    93       2  1.0  0.0  0.0
+   4  tfr1_his200m_20261023__tfr1_apical_his_21   101       3  1.0  0.0  0.0
+   5  tfr1_his200m_20261023__tfr1_apical_his_45    97       4  1.0  0.0  0.0
+   6  tfr1_his200m_20261023__tfr1_apical_his_57   121       5  1.0  0.0  0.0
+   7  tfr1_his200m_20261023__tfr1_apical_his_68    92       6  1.0  0.0  0.0
+   8  tfr1_his200m_20261023__tfr1_apical_his_82   101       7  1.0  0.0  0.0
+   9  tfr1_c200m_20261023__tfr1_apical_binder_126    73       8  1.0  0.0  0.0
+  10  tfr1_c200m_20261023__tfr1_apical_binder_138   115       9  1.0  0.0  0.0
+  11  tfr1_c200m_20261023__tfr1_apical_binder_177    84      10  1.0  0.0  0.0
+  12  tfr1_c200m_20261023__tfr1_apical_binder_186   130      11  1.0  0.0  0.0
+  13  tfr1_c200m_20261023__tfr1_apical_binder_187    69      12  1.0  0.0  0.0
+  14  tfr1_c200m_20261023__tfr1_apical_binder_58    84       3  1.0  0.0  0.0
+  15  tfr1_c200m_20261023__tfr1_apical_binder_94    72      13  1.0  0.0  0.0
+  16  tfr1_his200m_20261023__tfr1_apical_his_1    78      14  0.9  0.0  0.0
+  17  tfr1_his200m_20261023__tfr1_apical_his_115   113      15  0.9  0.0  0.0
+  18  tfr1_his200m_20261023__tfr1_apical_his_121    96      16  0.9  0.0  0.0
+  19  tfr1_his200m_20261023__tfr1_apical_his_133    73      17  0.9  0.0  0.0
+  20  tfr1_his200m_20261023__tfr1_apical_his_136    85      18  0.9  0.0  0.0
+
+next: python scripts/build_submission.py results/rfd4_geom_20261023/ranking/shortlist.csv -o submission/round4.csv

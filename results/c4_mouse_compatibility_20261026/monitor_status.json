@@ -1,0 +1,7 @@
+{
+  "checked_at_utc": "2026-11-05T12:29:03Z",
+  "checked_files": 129,
+  "status": "PASS",
+  "failures": [],
+  "scope": "C4 local artifact integrity only; no scientific revalidation or C5 polling"
+}

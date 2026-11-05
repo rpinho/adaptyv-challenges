@@ -1,0 +1,72 @@
+Scored 44/44 complexes.
+BindCraft v6 iPTM (this screen): 0.860, 0.850, 0.900, 0.880, 0.870, 0.850, 0.850, 0.870
+Floor = max(audit 0.76, min BindCraft 0.850) = 0.850
+
+=== v6 (current 20) under this screen ===
+  [     BC] c3_bc_l70_7781fe           iptm=0.860 ptm=0.860 plddt=91.5
+  [     BC] c3_bc_l65_8f7b63           iptm=0.850 ptm=0.850 plddt=90.5
+  [     BC] c3_bc_l57_fbcf76           iptm=0.900 ptm=0.860 plddt=92.3
+  [     BC] c3_bc_l100_c674f8          iptm=0.880 ptm=0.870 plddt=92.4
+  [     BC] c3_bc_l99_e26aff           iptm=0.870 ptm=0.860 plddt=88.8
+  [     BC] c3_bc_l52_6950ff           iptm=0.850 ptm=0.840 plddt=89.9
+  [     BC] c3_bc_l100_4bd789          iptm=0.850 ptm=0.850 plddt=90.2
+  [     BC] c3_bc_l78_3d63fd           iptm=0.870 ptm=0.850 plddt=92.1
+  [    VAR] c3_v_l100_E79Q_E93Q        iptm=0.890 ptm=0.880 plddt=92.7
+  [    VAR] c3_v_l57_F38Y              iptm=0.900 ptm=0.850 plddt=91.2
+  [    VAR] c3_v_l57_Q18K              iptm=0.900 ptm=0.860 plddt=91.4
+  [    VAR] c3_v_l57_Q18K_F38Y         iptm=0.900 ptm=0.860 plddt=92.0
+  [    VAR] c3_v_l65_E5Q_E53Q          iptm=0.850 ptm=0.850 plddt=90.3
+  [    VAR] c3_v_l65_E53Q              iptm=0.850 ptm=0.850 plddt=90.5
+  [    VAR] c3_v_l65_E5Q               iptm=0.850 ptm=0.850 plddt=90.4
+  [RFD4sel] c3_glp1r_ecd_172           iptm=0.900 ptm=0.870 plddt=91.6
+  [RFD4sel] c3_glp1r_ecd_171           iptm=0.870 ptm=0.860 plddt=91.1
+  [RFD4sel] c3_glp1r_ecd_29            iptm=0.230 ptm=0.570 plddt=85.2
+  [RFD4sel] c3_glp1r_ecd_12            iptm=0.310 ptm=0.620 plddt=77.8
+  [RFD4sel] c3_glp1r_ecd_151           iptm=0.900 ptm=0.870 plddt=93.0
+
+=== RFD4 shortlist (candidates) ranked by iPTM ===
+  c3_glp1r_ecd_51        iptm=0.920 ptm=0.870 plddt=92.6  CLEARS
+  c3_glp1r_ecd_128       iptm=0.910 ptm=0.870 plddt=92.1  CLEARS
+  c3_glp1r_ecd_188       iptm=0.910 ptm=0.880 plddt=92.8  CLEARS
+  c3_glp1r_ecd_26        iptm=0.910 ptm=0.870 plddt=92.5  CLEARS
+  c3_glp1r_ecd_92        iptm=0.910 ptm=0.870 plddt=92.5  CLEARS
+  c3_glp1r_ecd_132       iptm=0.900 ptm=0.880 plddt=92.3  CLEARS
+  c3_glp1r_ecd_14        iptm=0.900 ptm=0.880 plddt=94.0  CLEARS
+  c3_glp1r_ecd_33        iptm=0.900 ptm=0.860 plddt=90.8  CLEARS
+  c3_glp1r_ecd_40        iptm=0.900 ptm=0.880 plddt=93.5  CLEARS
+  c3_glp1r_ecd_46        iptm=0.900 ptm=0.880 plddt=93.8  CLEARS
+  c3_glp1r_ecd_127       iptm=0.890 ptm=0.860 plddt=92.1  CLEARS
+  c3_glp1r_ecd_4         iptm=0.890 ptm=0.850 plddt=91.2  CLEARS
+  c3_glp1r_ecd_70        iptm=0.890 ptm=0.870 plddt=92.8  CLEARS
+  c3_glp1r_ecd_153       iptm=0.870 ptm=0.860 plddt=88.2  CLEARS
+  c3_glp1r_ecd_22        iptm=0.860 ptm=0.860 plddt=91.3  CLEARS
+  c3_glp1r_ecd_193       iptm=0.840 ptm=0.850 plddt=90.8  
+  c3_glp1r_ecd_182       iptm=0.820 ptm=0.840 plddt=92.6  
+  c3_glp1r_ecd_192       iptm=0.800 ptm=0.830 plddt=91.3  
+  c3_glp1r_ecd_5         iptm=0.650 ptm=0.760 plddt=85.5  
+  c3_glp1r_ecd_103       iptm=0.590 ptm=0.720 plddt=82.2  
+  c3_glp1r_ecd_176       iptm=0.370 ptm=0.660 plddt=76.8  
+  c3_glp1r_ecd_7         iptm=0.300 ptm=0.640 plddt=73.1  
+  c3_glp1r_ecd_154       iptm=0.220 ptm=0.580 plddt=75.0  
+  c3_glp1r_ecd_198       iptm=0.220 ptm=0.560 plddt=58.2  
+
+=== GATE ===
+Candidates clearing floor 0.850: 15
+Replaceable (redundant variant) slots: ['c3_v_l100_E79Q_E93Q', 'c3_v_l57_F38Y', 'c3_v_l57_Q18K', 'c3_v_l57_Q18K_F38Y', 'c3_v_l65_E5Q_E53Q', 'c3_v_l65_E53Q', 'c3_v_l65_E5Q']
+Candidates that CLEAR the floor (still require refold + CSV-integrity + defensible diversity-gain replacement before any v7):
+  - c3_glp1r_ecd_51 (iptm=0.920)
+  - c3_glp1r_ecd_128 (iptm=0.910)
+  - c3_glp1r_ecd_188 (iptm=0.910)
+  - c3_glp1r_ecd_26 (iptm=0.910)
+  - c3_glp1r_ecd_92 (iptm=0.910)
+  - c3_glp1r_ecd_132 (iptm=0.900)
+  - c3_glp1r_ecd_14 (iptm=0.900)
+  - c3_glp1r_ecd_33 (iptm=0.900)
+  - c3_glp1r_ecd_40 (iptm=0.900)
+  - c3_glp1r_ecd_46 (iptm=0.900)
+  - c3_glp1r_ecd_127 (iptm=0.890)
+  - c3_glp1r_ecd_4 (iptm=0.890)
+  - c3_glp1r_ecd_70 (iptm=0.890)
+  - c3_glp1r_ecd_153 (iptm=0.870)
+  - c3_glp1r_ecd_22 (iptm=0.860)
+NOTE: clearing the floor is necessary, NOT sufficient. v7 only if a cleared candidate also passes refold/structural checks and replaces a redundant variant with a defensible diversity gain. A score alone does not justify v7.

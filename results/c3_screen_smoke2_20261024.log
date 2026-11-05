@@ -1,0 +1,45 @@
+✓ Initialized. View run at 
+https://modal.com/apps/pinho-ricardo/main/ap-6dP6d4hZwazltGxcjltia1
+✓ Created objects.
+├── 🔨 Created mount /Users/ricardo/dev/adaptyv-c4/modal_af2m_c3_complex.py
+├── 🔨 Created mount 
+│   /Users/ricardo/dev/adaptyv-c4/results/c3_screen_input_20261024.csv
+├── 🔨 Created function main.
+├── 🔨 Created function predict.
+└── 🔨 Created function consolidate.
+[c3_bc_l57_fbcf76] colabfold_batch /tmp/c3_bc_l57_fbcf76/c3_bc_l57_fbcf76.fasta /tmp/c3_bc_l57_fbcf76/out --model-type alphafold2_multimer_v3 --num-recycle 3 --num-models 5 --rank multimer --msa-mode mmseqs2_uniref_env --data /weights
+[c3_bc_l57_fbcf76] rc=0
+_model_3_seed_000 recycle=2 pLDDT=91.9 pTM=0.861 ipTM=0.901 tol=0.241
+2026-10-24 18:26:15,485 alphafold2_multimer_v3_model_3_seed_000 took 604.5s (2 recycles)
+2026-10-24 18:29:37,604 alphafold2_multimer_v3_model_4_seed_000 recycle=0 pLDDT=88.1 pTM=0.822 ipTM=0.808
+2026-10-24 18:32:59,561 alphafold2_multimer_v3_model_4_seed_000 recycle=1 pLDDT=92.2 pTM=0.862 ipTM=0.902 tol=0.41
+2026-10-24 18:32:59,562 alphafold2_multimer_v3_model_4_seed_000 took 404.0s (1 recycles)
+2026-10-24 18:36:05,296 alphafold2_multimer_v3_model_5_seed_000 recycle=0 pLDDT=83 pTM=0.796 ipTM=0.721
+2026-10-24 18:38:51,762 alphafold2_multimer_v3_model_5_seed_000 recycle=1 pLDDT=92 pTM=0.863 ipTM=0.9 tol=0.625
+2026-10-24 18:41:46,606 alphafold2_multimer_v3_model_5_seed_000 recycle=2 pLDDT=91.4 pTM=0.861 ipTM=0.9 tol=0.196
+2026-10-24 18:41:46,607 alphafold2_multimer_v3_model_5_seed_000 took 527.0s (2 recycles)
+2026-10-24 18:41:46,632 reranking models by 'multimer' metric
+2026-10-24 18:41:46,633 rank_001_alphafold2_multimer_v3_model_4_seed_000 pLDDT=92.2 pTM=0.862 ipTM=0.902
+2026-10-24 18:41:46,633 rank_002_alphafold2_multimer_v3_model_2_seed_000 pLDDT=91 pTM=0.854 ipTM=0.904
+2026-10-24 18:41:46,633 rank_003_alphafold2_multimer_v3_model_3_seed_000 pLDDT=91.9 pTM=0.861 ipTM=0.901
+2026-10-24 18:41:46,633 rank_004_alphafold2_multimer_v3_model_5_seed_000 pLDDT=91.4 pTM=0.861 ipTM=0.9
+2026-10-24 18:41:46,633 rank_005_alphafold2_multimer_v3_model_1_seed_000 pLDDT=91.9 pTM=0.861 ipTM=0.895
+2026-10-24 18:41:47,246 Done
+
+SMOKE RESULT: {
+  "name": "c3_bc_l57_fbcf76",
+  "source": "v6",
+  "binder_len": 57,
+  "target_len": 111,
+  "iptm": 0.9,
+  "ptm": 0.86,
+  "mean_plddt": 92.25702380952382,
+  "model": "c3_bc_l57_fbcf76_scores_rank_001_alphafold2_multimer_v3_model_4_seed_000.json",
+  "predictor": "colabfold_alphafold2_multimer_v3",
+  "num_recycle": 3,
+  "num_models": 5
+}
+[c3_bc_l57_fbcf76] iptm=0.9 ptm=0.86 plddt=92.25702380952382
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/pinho-ricardo/main/ap-6dP6d4hZwazltGxcjltia1

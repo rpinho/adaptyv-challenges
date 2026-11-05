@@ -1,0 +1,210 @@
+{
+  "input": "/Users/ricardo/dev/adaptyv-c4/results/c3_submission_v3_20261023.csv",
+  "biopython": "1.86",
+  "method_notes": "Reproduce C3 sequence metrics; no affinity or agonism predictor is implied.\n\nRun from any directory:\n  uv run --with biopython==1.86 python scripts/analyze_c3_sequence_properties.py\n  # Or: python -m pip install biopython==1.86\n  #     python scripts/analyze_c3_sequence_properties.py --input designs.csv\n\nInput: CSV with name,sequence columns. Defaults to the existing 20-design C3\nsubmission. Adds the exact, unmodified GLP-1 sequence supplied in the question.\n\nSecondary structure: explicitly defined Chou-Fasman-style implementation using\n1978 propensities, not ProteinAnalysis.secondary_structure_fraction (which is\nonly a residue-composition heuristic). Nucleate H with >=4/6 P_alpha>100,\nE with >=3/5 P_beta>100; extend while the new end tetrapeptide mean is >=100.\nRetain H segments with mean P_alpha>103 and P_alpha>P_beta, E segments with\nmean P_beta>105 and P_beta>P_alpha. Resolve contiguous H/E overlap using mean\npropensities in the overlap. Four-residue turns require product(f_i)>0.000075,\nmean P_turn>100 and >mean P_alpha and P_beta; assign all four to C. Unassigned\nresidues are C. This is an old heuristic with implementation-dependent results,\nnot a calibrated probability or a substitute for structure-derived DSSP.\n\nHydrophobic moment: Eisenberg normalized consensus scale, 100 degrees/residue,\ndivided by length. Report whole-chain hypothetical helix and maximum over\nproline-free 18-residue windows (five ideal helix turns). Neither proves that\nthe sequence is helical, nor that its hydrophobic face contacts GLP1R. Maxima\nhave length-selection bias. GRAVY instead uses Kyte-Doolittle hydropathy.\n\nInstability index uses all 400 Guruprasad dipeptide weights in Biopython.\nThe traditional cutoff is 40; it does not measure folding free energy,\naggregation, serum half-life, or affinity. Aliphatic index is not a measured Tm.\nCharge KR-DE is a composition count, NOT a pH-dependent net charge; also report\nBiopython charge at pH 7.4 (free termini assumed).\n\nReferences:\n  https://pubmed.ncbi.nlm.nih.gov/364941/\n  https://doi.org/10.1073/pnas.81.1.140\n  https://web.expasy.org/protparam/protparam-doc.html\n  https://biopython.org/docs/1.86/api/Bio.SeqUtils.ProtParam.html\n",
+  "Eisenberg_scale": {
+    "A": 0.62,
+    "R": -2.53,
+    "N": -0.78,
+    "D": -0.9,
+    "C": 0.29,
+    "Q": -0.85,
+    "E": -0.74,
+    "G": 0.48,
+    "H": -0.4,
+    "I": 1.38,
+    "L": 1.06,
+    "K": -1.5,
+    "M": 0.64,
+    "F": 1.19,
+    "P": 0.12,
+    "S": -0.18,
+    "T": -0.05,
+    "W": 0.81,
+    "Y": 0.26,
+    "V": 1.08
+  },
+  "Chou_Fasman_table": {
+    "A": [
+      142,
+      83,
+      66,
+      0.06,
+      0.076,
+      0.035,
+      0.058
+    ],
+    "C": [
+      70,
+      119,
+      119,
+      0.149,
+      0.05,
+      0.117,
+      0.128
+    ],
+    "D": [
+      101,
+      54,
+      146,
+      0.147,
+      0.11,
+      0.179,
+      0.081
+    ],
+    "E": [
+      151,
+      37,
+      74,
+      0.056,
+      0.06,
+      0.077,
+      0.064
+    ],
+    "F": [
+      113,
+      138,
+      60,
+      0.059,
+      0.041,
+      0.065,
+      0.065
+    ],
+    "G": [
+      57,
+      75,
+      156,
+      0.102,
+      0.085,
+      0.19,
+      0.152
+    ],
+    "H": [
+      100,
+      87,
+      95,
+      0.14,
+      0.047,
+      0.093,
+      0.054
+    ],
+    "I": [
+      108,
+      160,
+      47,
+      0.043,
+      0.034,
+      0.013,
+      0.056
+    ],
+    "K": [
+      114,
+      74,
+      101,
+      0.055,
+      0.115,
+      0.072,
+      0.095
+    ],
+    "L": [
+      121,
+      130,
+      59,
+      0.061,
+      0.025,
+      0.036,
+      0.07
+    ],
+    "M": [
+      145,
+      105,
+      60,
+      0.068,
+      0.082,
+      0.014,
+      0.055
+    ],
+    "N": [
+      67,
+      89,
+      156,
+      0.161,
+      0.083,
+      0.191,
+      0.091
+    ],
+    "P": [
+      57,
+      55,
+      152,
+      0.102,
+      0.301,
+      0.034,
+      0.068
+    ],
+    "Q": [
+      111,
+      110,
+      98,
+      0.074,
+      0.098,
+      0.037,
+      0.098
+    ],
+    "R": [
+      98,
+      93,
+      95,
+      0.07,
+      0.106,
+      0.099,
+      0.085
+    ],
+    "S": [
+      77,
+      75,
+      143,
+      0.12,
+      0.139,
+      0.125,
+      0.106
+    ],
+    "T": [
+      83,
+      119,
+      96,
+      0.086,
+      0.108,
+      0.065,
+      0.079
+    ],
+    "V": [
+      106,
+      170,
+      50,
+      0.062,
+      0.048,
+      0.028,
+      0.053
+    ],
+    "W": [
+      108,
+      137,
+      96,
+      0.077,
+      0.013,
+      0.064,
+      0.167
+    ],
+    "Y": [
+      69,
+      147,
+      114,
+      0.082,
+      0.065,
+      0.114,
+      0.125
+    ]
+  },
+  "design_count": 20
+}

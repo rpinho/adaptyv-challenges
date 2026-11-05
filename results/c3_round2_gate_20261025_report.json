@@ -1,0 +1,52 @@
+{
+  "gate": "C3 round-2 / v8",
+  "checks": [
+    {
+      "status": "ok",
+      "detail": "baseline v7 sha256 matches; 20 unique rows/sequences"
+    },
+    {
+      "status": "ok",
+      "detail": "permitted replacement slot present and unique: c3_v_l65_E5Q"
+    },
+    {
+      "status": "ok",
+      "detail": "E2 exact set reproduced: 24 unique candidates, 2 documented filter failures excluded, 2 replacements included"
+    },
+    {
+      "status": "ok",
+      "detail": "verification report was produced from the frozen screen_input_24.csv"
+    },
+    {
+      "status": "ok",
+      "detail": "all 24 E2 designs verified and sequence-bound on both sides to the exact 111-mer"
+    },
+    {
+      "status": "info",
+      "detail": "8 of 24 screened designs are fully eligible (16 rejected)"
+    },
+    {
+      "status": "ok",
+      "detail": "design -> backbone map agrees for all 24 E2 members (2 post-selection replacements)"
+    },
+    {
+      "status": "ok",
+      "detail": "baseline v7 independent count reproduced = 15 (unit=global)"
+    },
+    {
+      "status": "ok",
+      "detail": "B_26102611_s1 (iptm=0.930) replaces c3_v_l65_E5Q; final independent count 16 >= 16"
+    },
+    {
+      "status": "ok",
+      "detail": "CSV integrity: 20 rows, unique, canonical, 52-100, 19 non-variant rows byte-identical and in v7 order"
+    },
+    {
+      "status": "ok",
+      "detail": "dry-run: all conditions met; would write v8"
+    }
+  ],
+  "exit_code": 0,
+  "dry_run": true,
+  "wrote": null
+}

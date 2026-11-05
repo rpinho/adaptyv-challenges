@@ -1,0 +1,22 @@
+Done. Here's the outcome of the C3 improvement audit — **0 GPU spent, v6 unchanged, no v7 written** (none is defensible from existing data).
+
+## What I found
+
+**Diversity (quantified, not vibes):** v6's 20 rows collapse to **13 independent backbones**. Ten of the 20 slots are point-mutant families — l57 (parent + 3 variants), l65 (parent + 3 variants), l100 (parent + 1). The 7 variants are ≤2-residue edits, so they add essentially zero backbone diversity. Script: `scripts/c3_diversity_audit_20261024.py`.
+
+**The RFD4 pool is not the answer.** 184 of 195 unselected pool members pass the solubility/non-TM filters with novelty 0.93–0.98 — but so do the 5 already selected. Sequence diversity is abundant and cheap; **none of the unselected members have any GLP1R-complex binding evidence** (the pool was never complex-scored). Swapping a validated variant for a "more novel" unvalidated backbone trades evidence for a diversity statistic — exactly the cosmetic reranking to avoid. **Verdict: no replacement is justified by comparable evidence today.**
+
+**The BindCraft designs are the real anchors.** From the *existing* complex CIFs (no GPU), the top design's binder contacts the exact groove hotspots — W33, W39, R40, Y69, Y88, W91, R121. These are genuine, well-posed ECD-groove binders, good for the KD objective.
+
+**Agonism — do not claim it.** Two-domain model: the ECD groove binds GLP-1's **C-terminal** helix; the **N-terminal** residues engage the TMD and *that* drives activation. Every C3 design occupies the ECD groove and nothing touches the TMD → these are binders (KD-scoreable), mechanistically closer to competitive antagonists. Also: **`c3_methodology.txt` line 1 is factually backwards** — it says the groove accommodates GLP-1's "N-terminal helix"; it's the C-terminal helix. Worth fixing before you upload, along with any "agonist" wording.
+
+## The one path to a real v7 (reported, not spent)
+Uniform AF2-multimer complex prediction of a ~24-design RFD4 shortlist **plus the current 20** against the exact 111-residue ECD target — which I recovered from the ranked BindCraft CIFs, so no fetch needed. Promote an RFD4 backbone only if its iPTM clears the BindCraft floor under the same predictor. Bounded GPU (~44 complexes), modest upside (portfolio is already BindCraft-anchored). I did **not** launch it autonomously — it's a clean go/no-go for you.
+
+Full write-up: `results/c3_improvement_20261024.md`. Best-file line in `HANDOFF_KIMI.md` updated, still defaulting to **v6**. All submission CSVs confirmed byte-for-byte unchanged.
+
+Want me to prep the AF2M screen so it's one command away, or leave it until you decide?
+
+Sources (agonism mechanism): [PMC5118412](https://pmc.ncbi.nlm.nih.gov/articles/PMC5118412), [Nature 25153](https://www.nature.com/articles/nature25153), [PMC4933217](https://pmc.ncbi.nlm.nih.gov/articles/PMC4933217)
+
+C3_EXIT=0

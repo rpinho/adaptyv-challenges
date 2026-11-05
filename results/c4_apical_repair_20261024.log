@@ -1,0 +1,27 @@
+Done. The infrastructure/launch step is complete and verified.
+
+## What was actually going on
+
+The task premise ("no active Modal tasks remain") was stale. Ground truth from Modal:
+
+- **The premature-stop cause** was the first attempt, app `ap-Y95jGjM5vBmGc6ihEOo59l`, running as an **attached `modal run` (no `--detach`)**. When the local launcher exited, Modal stopped the app — "Stopping app - user stopped from CLI" at 12:55:55, 0 surviving tasks. An attached ephemeral app is bound to its launching client.
+- **The fix was already live**: the fan-out + consolidation live in a remote `run_all` driver spawned via `modal run --detach`. That relaunch produced **`ap-tNtBKluXq1k8gupDcvSSie`**, which is **detached and alive** — I watched it grow **15 → 36 → 42** persisted designs (toward 343) with no local client attached, proving it survives launcher exit. No nohup, no attached client.
+
+I deliberately **did not kill that healthy detached run** — it's producing correct outputs, and tearing it down to swap in stricter *input* validation (identical scientific output) would just waste the 11 in-flight predictions.
+
+## Code hardening applied to `modal_boltz2_apical.py` (validated locally, exit 0)
+
+- **Exact count gate** — `_load_candidates` asserts the PASS pool is *exactly* 343 and the dispatched count is exactly `min(343, max_designs)`; any pool drift raises before spend.
+- **Full per-design cache validation** (`_validate_cached`) — name match, **binder-sequence match**, target identity, `target_len==195`, iptm/ptm/confidence as real numbers in [0,1], **and a structural check that the PDB holds chain A (binder) + chain B == 195 residues**. Not just size/target_len. Verified against a real persisted design (chain A=82, B=195).
+- **Remote-only consolidation confirmed** — the local entrypoint writes nothing to `/runs` or `/Users/...`; `run_all` writes `consolidated_results.json` on the volume.
+- **Read-only download path** — remote `read_consolidated` (no write/commit) + `fetch` entrypoint that writes only to a local file.
+
+Acid prefix `boltz2_c4_acid/` untouched; no submissions, messages, or candidate generation. All historical files preserved (records appended, not replaced).
+
+## Recorded
+- `results/c4_apical_run_20261024.md` — AUTHORITATIVE section: app ID, driver call id, launch/check/resume/download commands, outputs, errors, file SHA256 `73b96c40…`.
+- `HANDOFF_KIMI.md` — concise live-status block superseding the prior "NOT LAUNCHED" notes.
+
+**Live state:** `ap-tNtBKluXq1k8gupDcvSSie` detached, 11 tasks, 42/343 designs persisted and climbing. Resume with `modal run --detach modal_boltz2_apical.py::main`; fetch results with `modal run modal_boltz2_apical.py::fetch` once complete.
+
+REPAIR_EXIT=0
