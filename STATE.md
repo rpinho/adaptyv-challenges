@@ -54,26 +54,34 @@ File: `results/c5_submission_v25_20261105.csv` (also LATEST.csv)
 v25 adds c5_r47_i_r2 (delta=+0.272, iptm=0.748, combined=5.167) at portfolio #3.
 Steps: navigate to challenge page → Submit designs → upload CSV → Check designs (8 min novelty) → fill methodology → check T&C → Submit.
 
-### R62 — Epitope conditioning (RUNNING, scoring)
-**One named difference:** BoltzGen `binding_types: {binding: '4..8'}` on chain C (G12D peptide),
-conditioning the binder to contact residues 4-8 centered on the D→G mutation at position 6.
-Never used in any prior round (R1-R61). 12 design jobs completed, 120 designs harvested, scoring in progress.
-Probe validated: API accepted the binding_types spec and returned designs normally.
+### R62 — Epitope conditioning: CLOSED
+0/120 selective. WT mean=0.726 (worse than unconditioned baseline). binding_types on C:4..8
+did not redirect contacts. Worse WT than baseline, not just same → closed at round 1.
+
+### R63 — Nanobody-anything: CLOSED
+0/73 selective. WT mean=0.828 (worst of all approaches). Nanobody scaffold binds MHC groove
+even more strongly than miniproteins. Closed at round 1.
+
+### R9 nanobody selectivity: ARTIFACT
+Original R9 scores (delta +0.666, WT=0.174) do NOT replicate with opendde-abag.
+Verified: nb_r2 delta=-0.049, nb_r5 delta=+0.051. The scoring model used in R9 was different.
 
 ### Stop Rule (binding)
 Three rounds that fail the same way end that approach.
 - **de novo maxlong 230-250aa: STOPPED** (R41-R60, 20 dry rounds, WT>0.5 wall)
-- **varied length ranges: round 1 of 3** (R61: 110 designs, best +0.184, worse than maxlong)
+- **varied length ranges: STOPPED** (R61: worse than maxlong)
 - **Boltz2 triage: DONE** (R47 candidate verified and included in v25)
-- **epitope conditioning: round 1 of 3** (R62: scoring in progress)
+- **epitope conditioning: STOPPED** (R62: worse WT than baseline)
+- **nanobody-anything: STOPPED** (R63: worst WT of all approaches)
+- **Remaining:** peptide-anything, shorter miniproteins (80-150aa), seed-controlled draws
 
 ### Three-Day Plan (Nov 5-8)
-- Nov 5: Submit v25 at 16:07 UTC. R62 epitope C:4..8 scoring.
-- Nov 5-6: R63 epitope C:5..7 (tighter), R64 shorter binders (100-150aa) + epitope
-- Nov 7: Protect — re-verify top 3 with fresh Boltz2
+- Nov 5: v25 submitted (pending Ricardo's T&C click). R62+R63 both closed.
+- Nov 6: R64 peptide-anything, R65 short miniproteins (80-150aa)
+- Nov 7: Protect — re-verify v25 top 3 with fresh Boltz2
 - Nov 8 by 6 PM ET: Final submission
 
-### Pipeline Summary (R23-R62)
+### Pipeline Summary (R23-R63)
 40 rounds, ~16,200 jobs, ~$344 spent, ~$666 remaining.
 3 productive rounds: R23 (4 entries), R35 (#1 at the time), R40 (current #1).
 Key finding: WT>0.5 wall. Every design since R23 has WT>0.5. Combined score (delta×10 + G12D + iptm×2) is the ranking metric.
