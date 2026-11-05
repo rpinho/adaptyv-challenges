@@ -230,3 +230,15 @@ The 15 clean rows are a viable submission on their own if a smaller set is accep
 - C3 frozen artifacts verify **4/4 OK**; no `ALARM_*`.
 - Both codex workers dormant since 2026-10-26 (last log writes 11:00:46 / 11:00:50). Not restarted.
 - $0 GPU spent by this audit. No submission, no upload, no organiser contact.
+
+### Approach Summary (R62-R65, Nov 5)
+All new approaches WORSE than baseline maxlong 230-250aa:
+| Approach | WT mean | Best delta | vs baseline |
+|---|---|---|---|
+| maxlong 230-250 (baseline) | 0.66 | +0.274 | BEST |
+| epitope C:4..8 (R62) | 0.726 | +0.226 | worse |
+| nanobody 100-130 (R63) | 0.828 | +0.120 | worse |
+| peptide 30-60 (R64) | 0.890 | +0.109 | worst |
+| short 80-149 (R65) | 0.815 | +0.104 | worse |
+
+**Conclusion:** v25 portfolio is likely near-optimal. WT>0.5 is a fundamental property of opendde-abag on this target. Shorter binders are WORSE (more groove contact relative to size). Remaining budget ($650) should be conserved for Boltz-2 re-verification of top 3 on Nov 7.
