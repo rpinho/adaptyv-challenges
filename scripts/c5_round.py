@@ -127,7 +127,7 @@ def main():
         letter = j["name"].split("_")[-1]
         for i, d in enumerate(r.get("designs", [])):
             seq = d.get("designed_sequence", "")
-            if seq and len(seq) >= 80:
+            if seq and len(seq) >= args.length_min:
                 designs.append({"name": f"c5_r{R}_{letter}_r{i}", "sequence": seq, "length": len(seq)})
     with open(f"{outdir}/round{R}_seqs.csv", "w") as f:
         w = csv.writer(f)
