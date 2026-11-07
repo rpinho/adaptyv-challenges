@@ -6,7 +6,7 @@ What I learned running the Adaptyv Bio protein design challenges (C3, C4, C5) as
 
 C4 designs target the transferrin receptor (TfR1) homodimer at acid pH. We generated 342 binders via RFdiffusion + ProteinMPNN. Then we scored them with AlphaFold2-multimer against a monomer construct instead of the homodimer (P02786-1, residues 121-760, two chains of 640 aa each).
 
-Found the mistake after the first submission. Had to rescore all 342 designs from scratch. Six A40 GPUs, 45 hours, ~$150. The scores came back different. Some designs that ranked high against the monomer dropped against the dimer.
+Found the mistake after the first submission. Had to rescore all 342 designs from scratch. Six A40 GPUs, 45 hours. The scores came back different. Some designs that ranked high against the monomer dropped against the dimer.
 
 The fix was straightforward but expensive. The lesson is obvious but I still missed it: verify the target construct before you start scoring. Read the challenge page, check the PDB, count the chains.
 
@@ -45,7 +45,7 @@ None of these are documented anywhere I could find. They're specific to the Cola
 
 66 out of 342 designs had issues: His6 tags (HHHHHH), homopolymer repeat tracts (5+ of the same amino acid), or low Shannon entropy. These are manufacturability red flags.
 
-We only screened for them when building submission CSVs. By then, $150 of compute was already spent scoring them. ProteinMPNN generated them; we should have filtered the sequences before sending them to AF2m.
+We only screened for them when building submission CSVs. By then, we'd already scored them all. ProteinMPNN generated them; we should have filtered the sequences before sending them to AF2m.
 
 ## AI orchestration context management
 
@@ -63,12 +63,6 @@ The orchestrator session stays cheap. The background script does the repetitive 
 Proteinbase accumulates all submitted designs. Submitting v11 doesn't replace v10. So we submit different designs each day — 20 per batch, different selection strategies, never overlapping. Five submissions of 20 = 100 designs evaluated.
 
 This was in the terms but easy to miss. It means there's no downside to submitting early, and the optimal strategy is to spread your best designs across multiple submissions with different criteria.
-
-## Budget
-
-Started with $189.50 RunPod credit. C4 scoring used ~$150 (6x A40 for 45 hours, including the bugs that burned time). Pod disk fees were ~$1.9/day while stopped. About $40 left for C5 compute, plus $1000 in Japanfold credits for C5 structure prediction.
-
-Total spend for C4 including the wrong-construct scoring and all the fixes: roughly $200 in compute. For 342 designs scored against a 1280-aa homodimer with 5 AF2m models each. That's about $0.58 per design, or $0.12 per model.
 
 ## What I still don't know
 
