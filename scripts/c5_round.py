@@ -10,10 +10,16 @@ Outputs: results/japanfold_pilot/roundN_{jobs,seqs,sel_jobs}.json
 import argparse, csv, json, os, sys, time, urllib.request
 
 BASE = "https://api.japanfold.aiand.com"
-HLA = "MAVMAPRTLLLLLSGALALTQTWAGSHSMRYFFTSVSRPGRGEPRFIAVGYVDDTQFVRFDSDAASQRMEPRAPWIEQEGPEYWDQETRNVKAQSQTDRVDLGTLRGYYNQSEAGSHTIQIMYGCDVGSDGRFLRGYRQDAYDGKDYIALNEDLRSWTAADMAAQITKRKWEAAHVAEQLRAYLEGLCVEWLRRYLENGKETLQRTDAPKTHMTHHAVSDHEATLRCWALSFYPAEITLTWQRDGEDQTQDTELVETRPAGDGTFQKWAAVVVPSGQEQRYTCHVQHEGLPKPLTLRWE"
-B2M = "MIQRTPKIQVYSRHPAENGKSNFLNCYVSGFHPSDIEVDLLKNGERIEKVEHSDLSFSKDWSFYLLYYTEFTPTEKDEYACRVNHVTLSQPKIVKWDRDM"
-G12D = "VVVGADGVGK"
-WT = "VVVGAGGVGK"
+
+# 2026-11-07: these used to be four literals here, and they were the WRONG ALLELE -
+# HLA-A*02:01 plus a 24aa signal peptide, against a challenge that targets A*11:01.
+# One source of truth now, verified against the captured challenge page on import.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from c5_target import HLA, B2M, G12D, WT, MIN_LEN, MAX_LEN, fasta as target_fasta, verify
+
+_bad = verify()
+if _bad:
+    sys.exit("c5_target.py failed verification, refusing to run a round:\n  " + "\n  ".join(_bad))
 
 def get_key():
     k = os.environ.get("JAPANFOLD_KEY", "")
@@ -69,6 +75,12 @@ def main():
     parser.add_argument("--binding-chain", default=None, help="target chain id to condition on (A, B or C)")
     parser.add_argument("--binding-range", default=None, help="1-based residue range on that chain, e.g. 1..10")
     args = parser.parse_args()
+
+    # The official cap is 10-250 aa. R114 spent a round at 280-350 aa and produced the
+    # lane's "best" design at 338 aa, which was never submittable. Refuse here instead.
+    if args.length_min < MIN_LEN or args.length_max > MAX_LEN:
+        sys.exit("refusing: %d-%daa is outside the official %d-%daa submission cap"
+                 % (args.length_min, args.length_max, MIN_LEN, MAX_LEN))
 
     key = get_key()
     R = args.round
