@@ -1,0 +1,17 @@
+De novo mini-protein binder design targeting the KRAS G12D pMHC complex (HLA-A*11:01 heavy chain / beta-2-microglobulin / VVVGADGVGK peptide), optimized for selectivity over the wild-type pMHC (VVVGAGGVGK) and assessed for peptide-dependence against peptide-free HLA-A*11:01 + B2M.
+
+Target: HLA-A*11:01 (allele A*11:01:01:01, IPD-IMGT/HLA HLA00043), mature heavy chain 281 aa, beta-2-microglobulin 99 aa, peptides VVVGADGVGK (G12D) and VVVGAGGVGK (wild-type). Sequences verified byte-for-byte against the challenge page capture of 2026-10-27.
+
+Design method: BoltzGen (JapanFold API, protein-anything protocol) generating 230-250 residue single-chain protein binders against the four-chain target complex (HLA + B2M + peptide + binder). Approximately 16,000 design jobs across 115 rounds with iterative parameter exploration.
+
+Scoring: OpenDDE-AbAg (antibody-antigen checkpoint) via JapanFold API. Each design scored against three targets: (1) G12D pMHC complex, (2) wild-type pMHC complex, and (3) peptide-free HLA-A*11:01 + B2M. Selectivity measured as delta = G12D_confidence - WT_confidence. Peptide-dependence assessed by scoring against the peptide-free complex (chains A + B + D only, no peptide chain C).
+
+Portfolio construction: 120 eligible designs (all <= 250 aa, sequence-keyed to deduplicate name collisions) rescored against the correct HLA-A*11:01 target. Top 20 selected by composite score: delta*10 - peptide_free_conf*2 + G12D_confidence. This composite favours high mutation specificity, low peptide-free binding, and high G12D affinity, matching the challenge's three ranking criteria.
+
+Known limitations:
+1. All 20 designs show peptide-free binding confidence > 0.6 (range 0.621-0.861), indicating groove/B2M contacts dominate over peptide contacts. No design in the pool achieves the ideal of detectable G12D binding with no peptide-free binding.
+2. Wild-type confidence remains > 0.6 for all designs (range 0.623-0.691), indicating residual cross-reactivity in silico.
+3. Selectivity is driven by differential affinity (higher G12D confidence) rather than true specificity (no WT or peptide-free binding).
+4. The initial ~80 rounds of this campaign scored against HLA-A*02:01 due to a target error. The error was found on 2026-11-07 and all designs were rescored against the correct A*11:01 target for this submission. Designs were generated against A*02:01 but the A*11:01 rescore shows some retain selectivity on the correct target.
+
+De novo: All sequences generated from scratch by BoltzGen with no template or starting scaffold. No existing binder was used as a starting point.

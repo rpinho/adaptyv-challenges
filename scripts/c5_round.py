@@ -136,16 +136,18 @@ def main():
             w.writerow([d["name"], d["sequence"], "single_chain"])
     print(f"  {len(designs)} designs harvested")
 
-    # Phase 4: Score with OpenDDE-AbAg
-    print(f"=== R{R}: Submitting {len(designs)*2} scoring jobs ===")
+    # Phase 4: Score with OpenDDE-AbAg (all 3 targets)
+    print(f"=== R{R}: Submitting {len(designs)*3} scoring jobs (g12d + wt + peptide-free) ===")
     tracker = []
     for i, d in enumerate(designs):
-        g = api(key, "/v1/predictions", {"model": "opendde-abag", "name": f"{d['name']}_g12d", "input": make_fasta(HLA, B2M, G12D, d["sequence"])})
-        w = api(key, "/v1/predictions", {"model": "opendde-abag", "name": f"{d['name']}_wt", "input": make_fasta(HLA, B2M, WT, d["sequence"])})
+        g = api(key, "/v1/predictions", {"model": "opendde-abag", "name": f"{d['name']}_g12d", "input": target_fasta(d["sequence"], "g12d")})
+        w = api(key, "/v1/predictions", {"model": "opendde-abag", "name": f"{d['name']}_wt", "input": target_fasta(d["sequence"], "wt")})
+        pf = api(key, "/v1/predictions", {"model": "opendde-abag", "name": f"{d['name']}_pf", "input": target_fasta(d["sequence"], "peptide_free")})
         tracker.append({
             "design_name": d["name"], "sequence": d["sequence"], "length": d["length"],
             "g12d_job_id": g.get("id", "") if g else "", "wt_job_id": w.get("id", "") if w else "",
-            "g12d_conf": 0.0, "wt_conf": 0.0, "delta": 0.0, "composite": 0.0,
+            "pf_job_id": pf.get("id", "") if pf else "",
+            "g12d_conf": 0.0, "wt_conf": 0.0, "pf_conf": 0.0, "delta": 0.0, "composite": 0.0,
         })
         if (i + 1) % 30 == 0:
             print(f"  Submitted {i+1}/{len(designs)}")
@@ -156,7 +158,7 @@ def main():
         done = 0
         for t in tracker:
             if t["delta"] != 0: done += 1; continue
-            for jk, ck in [("g12d_job_id", "g12d_conf"), ("wt_job_id", "wt_conf")]:
+            for jk, ck in [("g12d_job_id", "g12d_conf"), ("wt_job_id", "wt_conf"), ("pf_job_id", "pf_conf")]:
                 jid = t.get(jk, "")
                 if not jid or t.get(ck, 0) > 0: continue
                 r = api(key, f"/v1/jobs/{jid}")
@@ -164,9 +166,9 @@ def main():
                     res = api(key, f"/v1/jobs/{jid}/results")
                     if res and res.get("rows"):
                         t[ck] = float(res["rows"][0].get("confidence_score", 0))
-            if t.get("g12d_conf", 0) > 0 and t.get("wt_conf", 0) > 0:
+            if t.get("g12d_conf", 0) > 0 and t.get("wt_conf", 0) > 0 and t.get("pf_conf", 0) > 0:
                 t["delta"] = t["g12d_conf"] - t["wt_conf"]
-                t["composite"] = t["delta"] * 10 + t["g12d_conf"]
+                t["composite"] = t["delta"] * 10 - t["pf_conf"] * 2 + t["g12d_conf"]
                 done += 1
         print(f"  Poll {poll+1}: {done}/{len(tracker)} scored")
         if done >= len(tracker): break
@@ -177,19 +179,21 @@ def main():
 
     # Phase 6: Report
     scored = [t for t in tracker if t["delta"] != 0]
-    selective = [t for t in scored if t["delta"] > 0.015 and t.get("wt_conf", 1) < 0.5]
-    best = max(scored, key=lambda x: x["delta"]) if scored else None
+    selective = [t for t in scored if t["delta"] > 0.015 and t.get("pf_conf", 1) < 0.5]
+    pep_dependent = [t for t in scored if t["delta"] > 0 and t.get("pf_conf", 1) < 0.5]
+    best = max(scored, key=lambda x: x["composite"]) if scored else None
 
     print(f"\n=== R{R} Results ===")
     print(f"Scored: {len(scored)}/{len(tracker)}")
-    print(f"Selective (strict): {len(selective)}")
+    print(f"Selective (delta>0.015, pf<0.5): {len(selective)}")
+    print(f"Peptide-dependent (delta>0, pf<0.5): {len(pep_dependent)}")
     if best:
-        print(f"Best: {best['design_name']} delta={best['delta']:+.3f} g12d={best['g12d_conf']:.3f} wt={best['wt_conf']:.3f}")
+        print(f"Best: {best['design_name']} delta={best['delta']:+.3f} g12d={best['g12d_conf']:.3f} wt={best['wt_conf']:.3f} pf={best['pf_conf']:.3f} composite={best['composite']:.3f}")
 
     # Top 5
-    top5 = sorted(scored, key=lambda x: x["delta"], reverse=True)[:5]
+    top5 = sorted(scored, key=lambda x: x["composite"], reverse=True)[:5]
     for i, t in enumerate(top5):
-        print(f"  {i+1}. {t['design_name']}: delta={t['delta']:+.3f} g12d={t['g12d_conf']:.3f} wt={t['wt_conf']:.3f}")
+        print(f"  {i+1}. {t['design_name']}: delta={t['delta']:+.3f} g12d={t['g12d_conf']:.3f} wt={t['wt_conf']:.3f} pf={t['pf_conf']:.3f}")
 
 if __name__ == "__main__":
     main()
