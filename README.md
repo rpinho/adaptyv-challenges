@@ -1,5 +1,7 @@
 # adaptyv-c4
 
+Part of my AI-for-biology work: [the map and the field retro](https://github.com/rpinho/ai-biology).
+
 Track 3 entry for **Challenge 4** of the
 [Anthropic × Adaptyv Protein Design Competition](https://proteinbase.com/competitions/anthropic-adaptyv-2026).
 
