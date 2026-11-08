@@ -64,8 +64,52 @@ Proteinbase accumulates all submitted designs. Submitting v11 doesn't replace v1
 
 This was in the terms but easy to miss. It means there's no downside to submitting early, and the optimal strategy is to spread your best designs across multiple submissions with different criteria.
 
+## The same mistake, worse: C5 scored against the wrong HLA allele
+
+The C5 challenge target is HLA-A*11:01. We scored against HLA-A*02:01 for ~80 rounds, about 10,000 paired predictions.
+
+The two alleles share a heavy chain that starts with the same first 8 residues, then diverges. A*11:01 has tyrosine at position 9; A*02:01 has phenylalanine. The pipeline's sequence also had a 24-residue signal peptide that should not be in a folded-complex input. The A*11:01 mature chain is 281 aa; what we used was 299 aa of A*02:01 precursor. The B2M had an extra N-terminal methionine (100 aa instead of 99).
+
+I captured the challenge page verbatim on October 27, the day it opened. That capture has the correct A*11:01 sequence on line 236. The prep documents I wrote that day all say A*11:01. The allele was captured correctly on day one and then lost when an agent built the pipeline.
+
+Found the error on November 7, about 38 hours before the deadline. Diffed the pipeline's sequence against the capture and counted 11 mismatches plus the missing C-terminal LSSQPT.
+
+What I did:
+1. Created a single source of truth (`c5_target.py`) with the correct sequences, verified byte-for-byte against the capture.
+2. Added a pre-round assertion that refuses to run if the sequences don't match the capture.
+3. Rescored all 140 eligible designs against the correct target.
+4. Submitted v26 from the rescored top 20.
+
+The designs generated against A*02:01 that happened to have high G12D specificity on A*11:01 are our best designs. Fresh designs generated against the correct A*11:01 target scored worse (best delta +0.187 vs +0.285 from the rescored pool). I don't have a good explanation for this.
+
+The check that prevents it: `c5_target.py` runs `verify()` on import. It opens the pinned capture file, confirms every sequence appears in it byte-for-byte, checks the HLA length is 281, checks position 9 is tyrosine, and checks the capture mentions A*11:01. The round script calls this before anything else and exits if it fails.
+
+This is the second time in this competition I scored against the wrong thing (C4 was the receptor monomer vs homodimer). The pattern is the same: the challenge page says one thing, the pipeline uses something else, and nothing checks until a human looks. The fix is the same too: pin the target to a verbatim capture and assert on every run. Should have done it from the start.
+
+## Computational scorers disagree on what matters
+
+The most useful finding from C5. Two scoring models, run on the same designs against the same target, give fundamentally different rankings.
+
+OpenDDE-AbAg (an antibody-antigen confidence checkpoint) said our best dual-conditioned designs had delta +0.72: G12D confidence 0.878, WT confidence 0.151. That's extreme mutation specificity. Boltz-2 (a general structure prediction model) scored the exact same designs at delta ~0: G12D 0.934, WT 0.943. On Boltz-2 they bind everything equally.
+
+This isn't noise. The two models see different things in the same protein complex. OpenDDE-AbAg is trained on antibody-antigen interfaces; Boltz-2 is a general folding model. A designed binder that OpenDDE-AbAg calls selective, Boltz-2 calls promiscuous. Neither is wrong in the way iPTM ranking is wrong (C4 retro above) — they genuinely disagree about the binding prediction.
+
+The practical consequence: optimizing a single scorer doesn't tell you whether selectivity is real. The apparent breakthroughs in our late rounds were artifacts of one scorer. A multi-scorer consensus approach — requiring that multiple independent models agree before calling a design selective — is the only defensible path, and we didn't have time to run it properly.
+
+## Peptide-free binding: the problem nobody's scorer catches
+
+Every design we generated — all sizes (40-250 aa), all generators (BoltzGen, RFD4-Proteina), all conditioning strategies — binds the peptide-free HLA+B2M complex with confidence > 0.5. The challenge's second ranking criterion is peptide dependence: your binder should not bind the HLA without the peptide.
+
+I tested the hypothesis that smaller binders (40-80 aa) would be forced to choose between peptide and HLA contacts and show lower peptide-free binding. They don't. The 40-80 aa designs have worse peptide-free scores than the 230-250 aa designs.
+
+A publicly released competitor dataset (64 designs from @AllanatrixQ) showed that RFD4-Proteina at 60 aa generates designs that structurally contact the peptide — 4-7 contacts per design, zero B2M contacts. But when scored with OpenDDE-AbAg, those structural contacts don't translate into computational peptide dependence. The scorer doesn't see what the structure shows.
+
+This suggests a gap between structural contact prediction and the confidence-based scoring everybody uses for ranking. The designs might actually be peptide-dependent in the lab. Or the contacts might not be energetically significant. Nobody knows until the wet-lab results come back.
+
 ## What I still don't know
 
-- Whether any of our designs will actually bind. We optimized for iPTM consistency, not experimental binding. No idea if that correlates.
-- Whether the acid pH-switch approach works at all. The whole C4 strategy was proton-coupled design using histidine switches. The hypothesis is sound but untested.
-- Whether we're competitive. Probably not. But I learned more about protein design in two weeks than I would have in a semester.
+- Whether any of our designs will actually bind. We optimized for iPTM consistency (C4) and OpenDDE-AbAg delta (C5), not experimental binding. No idea if either correlates.
+- Whether the acid pH-switch approach works at all (C4). The whole strategy was proton-coupled design using histidine switches. The hypothesis is sound but untested.
+- Whether cross-model consensus is better than single-model optimization. We ran it too late to submit the results (C5).
+- Whether the peptide-free binding problem is a scoring artifact or a real design failure. Every team might have this problem. Or we might be the only ones.
+- Whether we're competitive. Probably not. But I learned more about protein design in three weeks than I would have in a semester.
