@@ -1,3 +1,5 @@
+![Adaptyv Challenges](assets/banner.png)
+
 # adaptyv-challenges
 
 Part of my AI-for-biology work: [the map and the field retro](https://github.com/rpinho/ai-biology).
