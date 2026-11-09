@@ -1,4 +1,4 @@
-![Adaptyv Challenges](assets/banner.png)
+![Adaptyv Challenges](assets/banner.jpg)
 
 # adaptyv-challenges
 
