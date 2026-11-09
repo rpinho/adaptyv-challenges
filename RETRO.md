@@ -94,7 +94,9 @@ OpenDDE-AbAg (an antibody-antigen confidence checkpoint) said our best dual-cond
 
 This isn't noise. The two models see different things in the same protein complex. OpenDDE-AbAg is trained on antibody-antigen interfaces; Boltz-2 is a general folding model. A designed binder that OpenDDE-AbAg calls selective, Boltz-2 calls promiscuous. Neither is wrong in the way iPTM ranking is wrong (C4 retro above) — they genuinely disagree about the binding prediction.
 
-The practical consequence: optimizing a single scorer doesn't tell you whether selectivity is real. The apparent breakthroughs in our late rounds were artifacts of one scorer. A multi-scorer consensus approach — requiring that multiple independent models agree before calling a design selective — is the only defensible path, and we didn't have time to run it properly.
+The practical consequence: optimizing a single scorer doesn't tell you whether selectivity is real. The apparent breakthroughs in our late rounds were artifacts of one scorer. A multi-scorer consensus approach — requiring that multiple independent models agree before calling a design selective — is the only defensible path.
+
+We ran it for v27. Scored 735 designs across OpenDDE-AbAg, Boltz-2, and OpenFold3. Two designs have positive delta on at least two models. One design (c5_r36_b_r3, 240 aa) has positive delta on all three. That's the one we submitted as #1. The v26 top-ranked design (delta +0.285 on OpenDDE-AbAg) shows negative delta on both Boltz-2 and OpenFold3.
 
 ## Peptide-free binding: the problem nobody's scorer catches
 
@@ -110,6 +112,6 @@ This suggests a gap between structural contact prediction and the confidence-bas
 
 - Whether any of our designs will actually bind. We optimized for iPTM consistency (C4) and OpenDDE-AbAg delta (C5), not experimental binding. No idea if either correlates.
 - Whether the acid pH-switch approach works at all (C4). The whole strategy was proton-coupled design using histidine switches. The hypothesis is sound but untested.
-- Whether cross-model consensus is better than single-model optimization. We ran it too late to submit the results (C5).
+- Whether cross-model consensus is better than single-model optimization. We submitted it (C5 v27) but don't know if consensus delta +0.09 predicts lab selectivity better than single-scorer delta +0.29.
 - Whether the peptide-free binding problem is a scoring artifact or a real design failure. Every team might have this problem. Or we might be the only ones.
 - Whether we're competitive. Probably not. But I learned more about protein design in three weeks than I would have in a semester.

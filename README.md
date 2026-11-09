@@ -36,11 +36,11 @@ See [METHOD.md](METHOD.md) for the full C4 technical description.
 - High affinity
 - Single-chain, 10-250 amino acids
 
-**Method:** BoltzGen (JapanFold API) generating 230-250 aa single-chain binders, scored with OpenDDE-AbAg against all three conditions. About 16,000 design jobs across 130 rounds. Portfolio selected by composite score favouring mutation specificity, low peptide-free binding, and G12D affinity.
+**Method:** BoltzGen (JapanFold API) generating single-chain binders at 55-250 aa, scored with three independent models (OpenDDE-AbAg, Boltz-2, OpenFold3) against all three conditions. About 18,000 design jobs across 140 rounds, plus RFD4-Proteina and nanobody/antibody protocols. Portfolio selected by cross-model consensus: designs ranked by agreement across all three scorers rather than optimization of any single one.
 
 The first ~80 rounds scored against the wrong HLA allele (A*02:01 instead of A*11:01). Found the error from our own day-one capture of the challenge page. Rescored all 140 eligible designs against the correct target. The wrong-target story is the most useful part of this entry. See [RETRO.md](RETRO.md).
 
-v26 submitted November 7. 20 designs, all single_chain, 230-250 aa. Best mutation specificity delta +0.285 (opendde-abag confidence). All designs bind peptide-free HLA (confidence > 0.6), which means they read the groove surface more than the peptide. Candidate; lab results not out.
+v27 submitted November 9 (final). 20 designs, 59-250 aa. The top design is the only one out of 735 tested that shows positive mutation specificity on all three scoring models (Boltz-2 +0.091, OpenFold3 +0.079, OpenDDE-AbAg +0.244). The previous top-ranked design by single-scorer (OpenDDE-AbAg +0.285) shows negative delta on both Boltz-2 and OpenFold3 — a scorer-specific artifact. All designs bind peptide-free HLA. Candidate; lab results not out.
 
 ## Running
 
